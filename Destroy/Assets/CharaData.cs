@@ -9,5 +9,14 @@ public class CharaData : MonoBehaviour
     {
         return score;
     }
-    
+    //スコアのセット
+    public void SetScore(int num)
+    {
+        score = num;
+    }
+    //スコアの加算
+    public void AddScore(int num)
+    {
+        score += num;
+    }
 }
