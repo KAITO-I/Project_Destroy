@@ -14,11 +14,16 @@ public class TitleManager : MonoBehaviour
 
     public void OnClickStart()
     {
-        FadeManager.Instance.LoadScene("MainGame", 1f);
+        SceneController.Instance.Load("MainGame");
     }
 
     public void OnClickRanking()
     {
+        SceneController.Instance.Load("Ranking");
+    }
 
+    public void OnClickEnd()
+    {
+        UnityEngine.Application.Quit();
     }
 }

@@ -22,7 +22,8 @@ public class SceneController : MonoBehaviour
     }
 
     private AsyncOperation async;
-    private float interval = 2f;
+    [SerializeField] float fadeInTime;
+    [SerializeField] float fadeOutTime;
 
     private float fadeAlpha = 0f;
     private bool isFading = false;
@@ -61,9 +62,9 @@ public class SceneController : MonoBehaviour
 
         //だんだん暗く
         float time = 0f;
-        while (time <= interval)
+        while (time <= this.fadeInTime)
         {
-            this.fadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
+            this.fadeAlpha = Mathf.Lerp(0f, 1f, time / this.fadeInTime);
             time += Time.deltaTime;
             yield return 0;
         }
@@ -77,9 +78,9 @@ public class SceneController : MonoBehaviour
 
         //だんだん明るく
         time = 0f;
-        while (time <= interval)
+        while (time <= this.fadeOutTime)
         {
-            this.fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);
+            this.fadeAlpha = Mathf.Lerp(1f, 0f, time / this.fadeOutTime);
             time += Time.deltaTime;
             yield return 0;
         }
