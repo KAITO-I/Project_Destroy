@@ -21,7 +21,6 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    private AsyncOperation async;
     [SerializeField] float fadeInTime;
     [SerializeField] float fadeOutTime;
 
@@ -58,9 +57,10 @@ public class SceneController : MonoBehaviour
 
     private IEnumerator LoadScene(string scene)
     {
+        //フェード開始
         this.isFading = true;
 
-        //だんだん暗く
+        //徐々に暗転
         float time = 0f;
         while (time <= this.fadeInTime)
         {
@@ -69,14 +69,24 @@ public class SceneController : MonoBehaviour
             yield return 0;
         }
 
-        //シーン切り替え
-        this.async = SceneManager.LoadSceneAsync(scene);
-        while (!async.isDone)
-        {
-            yield return null;
-        }
+        //Loadingシーン
+        SceneManager.LoadScene("Loading");
+        yield return new WaitForSeconds(1f / 60f);
 
-        //だんだん明るく
+        //明転
+        this.fadeAlpha = 0f;
+
+        //呼び出し
+        AsyncOperation async = SceneManager.LoadSceneAsync(scene);
+        async.allowSceneActivation = false;
+        while (async.progress < 0.9f) yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(2f);
+
+        //暗転
+        this.fadeAlpha = 1f;
+        async.allowSceneActivation = true;
+
+        //徐々に明転
         time = 0f;
         while (time <= this.fadeOutTime)
         {

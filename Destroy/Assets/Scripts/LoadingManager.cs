@@ -16,7 +16,8 @@ public class LoadingManager : MonoBehaviour
     void Start()
     {
         List<GameObject> loadingList = new List<GameObject>();
-        foreach (GameObject loadingChar in this.loading.transform) loadingList.Add(loadingChar);
+        
+        foreach (Transform loadingChar in this.loading.GetComponentInChildren<Transform>()) loadingList.Add(loadingChar.gameObject);
         this.loadingArray = loadingList.ToArray();
 
         this.time = 0f;
@@ -27,10 +28,14 @@ public class LoadingManager : MonoBehaviour
     void Update()
     {
         this.time += Time.deltaTime;
+        if (this.loadingArray[this.maxCharNum - 1].GetComponent<Animation>().isPlaying) return;
         if (this.time >= this.interval)
         {
-            GameObject charObj = this.loadingArray[this.charNum];
-            charObj.SetActive(!charObj.active);
+            this.time = 0f;
+            this.loadingArray[this.charNum].GetComponent<Animation>().Play();
+
+            this.charNum++;
+            if (this.charNum == this.maxCharNum) this.charNum = 0;
         }
     }
 }

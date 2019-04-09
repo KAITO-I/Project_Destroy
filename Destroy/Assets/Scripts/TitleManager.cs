@@ -24,6 +24,11 @@ public class TitleManager : MonoBehaviour
 
     public void OnClickEnd()
     {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+#if UNITY_STANDALONE
         UnityEngine.Application.Quit();
+#endif
     }
 }
