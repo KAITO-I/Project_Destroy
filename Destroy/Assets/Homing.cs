@@ -21,12 +21,12 @@ public class Homing : MonoBehaviour
     private new Renderer renderer = null;
 
     public float Speed;
-    bool Flag = false;
+    bool Flag = false , Flag2 = false;
 
     void Start()
     {
         renderer = GetComponentInChildren<Renderer>();
-
+        target = GameObject.FindWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         agent.speed = Speed;
         SetState("Nomal");
@@ -41,7 +41,7 @@ public class Homing : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && state == EnemyState.Nomal)
             {
-                SetState("Chase");
+                Invoke("Chase", 1.0f);
             }
         }
         else
@@ -50,7 +50,11 @@ public class Homing : MonoBehaviour
         }
         Get();
     }
-
+    void Chase()
+    {
+        SetState("Chase");
+        Flag2 = true;
+    }
     public void SetState(string Mode)
     {
         if (Mode == "Nomal")
@@ -77,14 +81,14 @@ public class Homing : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Crusher")
         {
             Flag = true;
         }
     }
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player" && state != EnemyState.Chase)
+        if (other.tag == "Crusher" && state != EnemyState.Chase && Flag2 != false)
         {
             Flag = false;
         }
