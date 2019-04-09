@@ -42,7 +42,7 @@ public class Unityちゃん_Move: MonoBehaviour
     private GameObject cameraObject;    // メインカメラへの参照
     private Transform camera_pos;
     private  Vector3 cameraForward;
-    private Vector3 moveForward;
+    public Vector3 moveForward;
     private Vector3 P_pos; //プレイヤーのポジション
     private Vector3 S_pos; //プレイヤーのポジション
 
@@ -127,15 +127,16 @@ public class Unityちゃん_Move: MonoBehaviour
 
     void Move(float h, float v)
     {
+        
         if (camera_pos != null)
         {
             cameraForward = Vector3.Scale(camera_pos.forward, new Vector3(1, 1, 1)).normalized;
 
-            moveForward = v * cameraForward + h * camera_pos.right;
+            moveForward = v* 2 * cameraForward + h  * camera_pos.right;
 
             moveForward.y = transform.position.y;
         }
-
+        
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             transform.position= new Vector3(transform.position.x + moveForward.x,moveForward.y,transform.position.z + moveForward.z);
