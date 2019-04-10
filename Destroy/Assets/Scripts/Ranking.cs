@@ -18,6 +18,7 @@ public class Ranking : MonoBehaviour
     public float timebo = 0.5f;
     public bool test = false;
     public Text[] rankingText;
+    public Text ScoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -92,12 +93,12 @@ public class Ranking : MonoBehaviour
     }
     void Display()
     {
+        ScoreText.text = "被害総額: " + nowScore + "円";
         for (int i = 0; i < rankingi.Length; i++)
         {
             rankingText[i].text = (i + 1) + "位 ：" + (rankingi[i]) + "円";
         }
     }
-
     void ScoreSet()
     {
         //        HighScore = 0;

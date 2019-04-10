@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainGameManaer : MonoBehaviour
 {
+    CameraMove cm;
     private enum GameStatus
     {
         Opening
@@ -19,12 +20,13 @@ public class MainGameManaer : MonoBehaviour
     private void Start()
     {
         this.status = GameStatus.Opening;
-        
+        cm = GetComponent<CameraMove>();
+        StartCoroutine(cm.StartCamera());
     }
 
     private IEnumerator Opening()
     {
-        
+        yield return null;
     }
 
     private void Update()
