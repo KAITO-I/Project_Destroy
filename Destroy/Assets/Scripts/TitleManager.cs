@@ -8,6 +8,11 @@ public class TitleManager : MonoBehaviour
     private int selectNum;
     private Dictionary<int, GameObject> buttonDic;
 
+    private AudioSource audio;
+    [SerializeField] AudioClip selectButtonSE;
+    [SerializeField] AudioClip pushStartButtonSE;
+    [SerializeField] AudioClip pushButtonSE;
+
     void Start()
     {
         Cursor.visible = false;
@@ -17,6 +22,8 @@ public class TitleManager : MonoBehaviour
         this.buttonDic.Add(0, GameObject.Find("Canvas/TitleOp/MainUI/StartButton"));
         this.buttonDic.Add(1, GameObject.Find("Canvas/TitleOp/MainUI/RankingButton"));
         this.buttonDic.Add(2, GameObject.Find("Canvas/TitleOp/MainUI/EndButton"));
+
+        this.audio = GetComponent<AudioSource>();
 
         this.buttonDic[0].GetComponent<TitleUIManager>().SetSelecting(true);
     }
@@ -28,6 +35,8 @@ public class TitleManager : MonoBehaviour
             if (this.selectNum < 2)
             {
                 this.selectNum++;
+
+                PlaySound(this.selectButtonSE);
                 this.buttonDic[selectNum].GetComponent<TitleUIManager>().SetSelecting(true);
                 this.buttonDic[selectNum - 1].GetComponent<TitleUIManager>().SetSelecting(false);
             }
@@ -38,6 +47,8 @@ public class TitleManager : MonoBehaviour
             if (this.selectNum > 0)
             {
                 this.selectNum--;
+
+                PlaySound(this.selectButtonSE);
                 this.buttonDic[selectNum].GetComponent<TitleUIManager>().SetSelecting(true);
                 this.buttonDic[selectNum + 1].GetComponent<TitleUIManager>().SetSelecting(false);
             }
@@ -64,6 +75,8 @@ public class TitleManager : MonoBehaviour
 
     private IEnumerator OnClickStart()
     {
+        PlaySound(this.pushStartButtonSE);
+
         TitleUIManager button = this.buttonDic[0].GetComponent<TitleUIManager>();
         button.SetSelecting(false);
         button.Selected();
@@ -73,6 +86,8 @@ public class TitleManager : MonoBehaviour
 
     public IEnumerator OnClickRanking()
     {
+        PlaySound(this.pushButtonSE);
+
         TitleUIManager button = this.buttonDic[1].GetComponent<TitleUIManager>();
         button.SetSelecting(false);
         button.Selected();
@@ -82,6 +97,8 @@ public class TitleManager : MonoBehaviour
 
     public IEnumerator OnClickEnd()
     {
+        PlaySound(this.pushButtonSE);
+
         TitleUIManager button = this.buttonDic[2].GetComponent<TitleUIManager>();
         button.SetSelecting(false);
         button.Selected();
@@ -92,5 +109,11 @@ public class TitleManager : MonoBehaviour
 #if UNITY_STANDALONE
         UnityEngine.Application.Quit();
 #endif
+    }
+
+    private void PlaySound(AudioClip sound)
+    {
+        this.audio.clip = sound;
+        this.audio.Play();
     }
 }
