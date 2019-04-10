@@ -21,7 +21,7 @@ public class Ranking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nowScore = CharaData.GetScore();
+
         if (test)
         {
             GetKariScore();

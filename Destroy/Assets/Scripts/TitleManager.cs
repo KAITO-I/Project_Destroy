@@ -1,31 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class TitleManager : MonoBehaviour
 {
-    private AudioSource audio;
-    [SerializeField] AudioClip[] voices;
-    [SerializeField] TextMeshProUGUI subtitle;
-    [SerializeField] string[] subtitles;
-
     void Start()
     {
-        this.audio = GetComponent<AudioSource>();
-        StartCoroutine(voicePlay());
+        Cursor.visible = false;
+
+        GameObject.Find("Canvas/MainUI/StartButton").GetComponent<Button>().Select();
     }
 
-    private IEnumerator voicePlay()
+    public void OnClickStart()
     {
-        int num = 0;
-        while (num < voices.Length)
-        {
-            audio.clip = voices[num];
-            audio.Play();
-            subtitle.text = subtitles[num];
-            yield return new WaitForSeconds(voices[num].length);
-            num++;
-        }
+        SceneController.Instance.Load("MainGame");
+    }
+
+    public void OnClickRanking()
+    {
+        SceneController.Instance.Load("Ranking");
+    }
+
+    public void OnClickEnd()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+#if UNITY_STANDALONE
+        UnityEngine.Application.Quit();
+#endif
     }
 }
