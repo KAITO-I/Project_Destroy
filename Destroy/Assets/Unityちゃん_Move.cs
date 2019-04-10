@@ -42,7 +42,7 @@ public class Unityちゃん_Move: MonoBehaviour
     private GameObject cameraObject;    // メインカメラへの参照
     private Transform camera_pos;
     private  Vector3 cameraForward;
-    private Vector3 moveForward;
+    public Vector3 moveForward;
     private Vector3 P_pos; //プレイヤーのポジション
     private Vector3 S_pos; //プレイヤーのポジション
 
@@ -50,6 +50,7 @@ public class Unityちゃん_Move: MonoBehaviour
     private Vector3 diff;
     private Vector3 new_diff;
     private float pos_y;
+    public bool Move_Flag = true;
     // 初期化
     void Start()
     {
@@ -114,28 +115,38 @@ public class Unityちゃん_Move: MonoBehaviour
         if (input > 1.0) input = 1.0f;
         if (input_h > 1.0) input_h = 1.0f;
         if (input_v > 1.0) input_v = 1.0f;
-        Move(input_X, input_Y);
-
+        if (Move_Flag == true)
+        {
+            Move(input_X, input_Y);
+        }
         Vector3 D_Pos = transform.position - S_pos;
         float D_mag;
         D_mag = Mathf.Clamp(D_Pos.magnitude, 0.0f,1.0f) / 10.0f ;
 
-//        anim.SetFloat("Speed",  D_mag / Time.deltaTime);
+       anim.SetFloat("Speed",  D_mag / Time.deltaTime);
 
         S_pos = transform.position;
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetBool("Stop", true);
+            Move_Flag = false;
+            Invoke("Restart", 0.5f);
+        }
     }
 
     void Move(float h, float v)
     {
+        
         if (camera_pos != null)
         {
             cameraForward = Vector3.Scale(camera_pos.forward, new Vector3(1, 1, 1)).normalized;
 
-            moveForward = v * cameraForward + h * camera_pos.right;
+            moveForward = v* 2 * cameraForward + h  * camera_pos.right;
 
             moveForward.y = transform.position.y;
         }
-
+        
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             transform.position= new Vector3(transform.position.x + moveForward.x,moveForward.y,transform.position.z + moveForward.z);
@@ -160,20 +171,17 @@ public class Unityちゃん_Move: MonoBehaviour
         {
 
             transform.rotation = Quaternion.LookRotation(new_diff);  //ベクトルの情報をQuaternion.LookRotationに引き渡し回転量を取得しプレイヤーを回転させる
+
         }
         P_pos = transform.position; //プレイヤーの位置を更新
     }
 
-    public void NowAttack()
+    void Restart()
     {
-        Sp = 0.0f;
+        Move_Flag = true;
     }
+
     
-    public void AttackEnd()
-    {
-        Sp = Speed;
-        anim.SetBool("Dash", false);
-    }
 }
 
 
