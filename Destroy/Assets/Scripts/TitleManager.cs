@@ -30,6 +30,7 @@ public class TitleManager : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             if (this.selectNum < 2)
