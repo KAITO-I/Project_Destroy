@@ -50,6 +50,7 @@ public class Unityちゃん_Move: MonoBehaviour
     private Vector3 diff;
     private Vector3 new_diff;
     private float pos_y;
+    public bool Move_Flag = true;
     // 初期化
     void Start()
     {
@@ -114,15 +115,24 @@ public class Unityちゃん_Move: MonoBehaviour
         if (input > 1.0) input = 1.0f;
         if (input_h > 1.0) input_h = 1.0f;
         if (input_v > 1.0) input_v = 1.0f;
-        Move(input_X, input_Y);
-
+        if (Move_Flag == true)
+        {
+            Move(input_X, input_Y);
+        }
         Vector3 D_Pos = transform.position - S_pos;
         float D_mag;
         D_mag = Mathf.Clamp(D_Pos.magnitude, 0.0f,1.0f) / 10.0f ;
 
-//        anim.SetFloat("Speed",  D_mag / Time.deltaTime);
+       anim.SetFloat("Speed",  D_mag / Time.deltaTime);
 
         S_pos = transform.position;
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetBool("Stop", true);
+            Move_Flag = false;
+            Invoke("Restart", 0.5f);
+        }
     }
 
     void Move(float h, float v)
@@ -166,16 +176,12 @@ public class Unityちゃん_Move: MonoBehaviour
         P_pos = transform.position; //プレイヤーの位置を更新
     }
 
-    public void NowAttack()
+    void Restart()
     {
-        Sp = 0.0f;
+        Move_Flag = true;
     }
+
     
-    public void AttackEnd()
-    {
-        Sp = Speed;
-        anim.SetBool("Dash", false);
-    }
 }
 
 

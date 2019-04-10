@@ -17,11 +17,12 @@ public class Homing : MonoBehaviour
     public GameObject target;
     public NavMeshAgent agent;
 
-    public Material Red, Blue;
+   // public Material Red, Blue;
     private new Renderer renderer = null;
 
     public float Speed;
     bool Flag = false , Flag2 = false;
+    Animator animator;
 
     void Start()
     {
@@ -29,19 +30,20 @@ public class Homing : MonoBehaviour
         target = GameObject.FindWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         agent.speed = Speed;
+        animator = GetComponent<Animator>();
         SetState("Nomal");
     }
 
     void Update()
     {
-        if (state == EnemyState.Chase) renderer.material = Red;
-        if (state == EnemyState.Nomal) renderer.material = Blue;
+        //if (state == EnemyState.Chase) renderer.material = Red;
+        //if (state == EnemyState.Nomal) renderer.material = Blue;
 
         if (Flag == true)
         {
             if (Input.GetKeyDown(KeyCode.Space) && state == EnemyState.Nomal)
             {
-                Invoke("Chase", 1.0f);
+                Chase();
             }
         }
         else
@@ -53,7 +55,8 @@ public class Homing : MonoBehaviour
     void Chase()
     {
         SetState("Chase");
-        Flag2 = true;
+        animator.SetBool("Flag", true);
+
     }
     public void SetState(string Mode)
     {
@@ -69,7 +72,7 @@ public class Homing : MonoBehaviour
     }
     public void Get()
     {
-        if (state == EnemyState.Chase)
+        if (state == EnemyState.Chase && Flag2 == true)
         {
             agent.SetDestination(target.transform.position);
         }
@@ -77,6 +80,10 @@ public class Homing : MonoBehaviour
         {
             agent.SetDestination(transform.position);
         }
+    }
+    void Chase_Start()
+    {
+        Flag2 = true;
     }
 
     public void OnTriggerEnter(Collider other)
