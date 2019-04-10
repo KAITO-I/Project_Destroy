@@ -131,7 +131,6 @@ public class Unityちゃん_Move: MonoBehaviour
         {
             anim.SetBool("Stop", true);
             Move_Flag = false;
-            Invoke("Restart", 0.5f);
         }
     }
 
@@ -179,9 +178,13 @@ public class Unityちゃん_Move: MonoBehaviour
     void Restart()
     {
         Move_Flag = true;
-    }
+        anim.SetBool("Stop", false)
+;    }
 
-    
+    void Motion_End()
+    {
+        Restart();
+    }
 }
 
 

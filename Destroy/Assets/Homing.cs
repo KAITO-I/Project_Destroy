@@ -3,101 +3,103 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Homing : MonoBehaviour
+namespace UnityStandardAssets.Characters.ThirdPerson
 {
-    public enum EnemyState
+    [RequireComponent(typeof(ThirdPersonCharacter))]
+   // [RequireComponent(typeof(NavMeshAgent))]
+    public class Homing : MonoBehaviour
     {
-        Nomal,
-        Chase
-    };
-    [SerializeField]
-
-    public EnemyState state;
-
-    public GameObject target;
-    public NavMeshAgent agent;
-
-   // public Material Red, Blue;
-    private new Renderer renderer = null;
-
-    public float Speed;
-    bool Flag = false , Flag2 = false;
-    Animator animator;
-
-    void Start()
-    {
-        renderer = GetComponentInChildren<Renderer>();
-        target = GameObject.FindWithTag("Player");
-        agent = GetComponent<NavMeshAgent>();
-        agent.speed = Speed;
-        animator = GetComponent<Animator>();
-        SetState("Nomal");
-    }
-
-    void Update()
-    {
-        //if (state == EnemyState.Chase) renderer.material = Red;
-        //if (state == EnemyState.Nomal) renderer.material = Blue;
-
-        if (Flag == true)
+        public enum EnemyState
         {
-            if (Input.GetKeyDown(KeyCode.Space) && state == EnemyState.Nomal)
+            Nomal,
+            Chase
+        };
+
+        public EnemyState state;
+        AICharacterControl ai;
+        public GameObject target;
+        public NavMeshAgent agent;
+        // public Material Red, Blue;
+        private new Renderer renderer = null;
+
+        public float Speed;
+        public bool Flag = false, Flag2 = false;
+        Animator animator;
+
+        void Start()
+        {
+            target = GameObject.FindWithTag("Player")
+;            renderer = GetComponentInChildren<Renderer>();
+            target = GameObject.FindWithTag("Player");
+            agent = GetComponent<NavMeshAgent>();
+            agent.speed = Speed;
+            animator = GetComponent<Animator>();
+            SetState("Nomal");
+            ai = GetComponent<AICharacterControl>();
+        }
+
+        void Update()
+        {
+            //if (state == EnemyState.Chase) renderer.material = Red;
+            //if (state == EnemyState.Nomal) renderer.material = Blue;
+
+            if (Flag == true && Flag2 == false)
             {
-                Chase();
+                if (Input.GetKeyDown(KeyCode.Space) && state == EnemyState.Nomal)
+                {
+                    Chase();
+                }
+            }
+            Get();
+        }
+        void Chase()
+        {
+            SetState("Chase");
+            agent.speed = 0;
+            animator.SetBool("Flag", true);
+            SetState("Chase");
+            agent.SetDestination(this.transform.position);
+        }
+        public void SetState(string Mode)
+        {
+            if (Mode == "Nomal")
+            {
+                state = EnemyState.Nomal;
+
+            }
+            if (Mode == "Chase")
+            {
+                state = EnemyState.Chase;
             }
         }
-        else
+        public void Get()
         {
-            SetState("Nomal");
+            if (state == EnemyState.Chase && Flag2 == true)
+            {
+                agent.SetDestination(target.transform.position);
+            }
         }
-        Get();
-    }
-    void Chase()
-    {
-        SetState("Chase");
-        animator.SetBool("Flag", true);
-
-    }
-    public void SetState(string Mode)
-    {
-        if (Mode == "Nomal")
+        void Chase_Start()
         {
-            state = EnemyState.Nomal;
-
-        }
-        if (Mode == "Chase")
-        {
-            state = EnemyState.Chase;
-        }
-    }
-    public void Get()
-    {
-        if (state == EnemyState.Chase && Flag2 == true)
-        {
-            agent.SetDestination(target.transform.position);
-        }
-        else
-        {
-            agent.SetDestination(transform.position);
-        }
-    }
-    void Chase_Start()
-    {
-        Flag2 = true;
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Crusher")
-        {
-            Flag = true;
-        }
-    }
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Crusher" && state != EnemyState.Chase && Flag2 != false)
-        {
+            Flag2 = true;
             Flag = false;
+            agent.speed = Speed;
+            ai.Null();
+            Get();
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Crusher")
+            {
+                Flag = true;
+            }
+        }
+        public void OnTriggerExit(Collider other)
+        {
+            
+                Flag = false;
+           
         }
     }
 }
