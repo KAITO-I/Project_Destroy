@@ -93,6 +93,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             agent.speed = Speed;
             ai.Null();
             Get();
+            this.tag = "Enemy";
         }
 
         public void OnTriggerEnter(Collider other)
