@@ -16,4 +16,4 @@ MonoBehaviour:
   HP: 1
   dropPar: 5
   Price: 15000
-  obj: {fileID: 0}
+  obj: {fileID: 1796908996081462570, guid: bfa1503e989112d46ad3d75a4195b573, type: 3}

@@ -50,6 +50,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     Chase();
                 }
             }
+            if(Flag == true)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    GameObject.Find("MainGameManager").GetComponent<ScoreManager>().Scorecalc(gameObject, gameObject.GetComponent<CharaData>().haveItem);
+                }
+            }
             Get();
         }
         void Chase()
