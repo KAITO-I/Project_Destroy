@@ -32,7 +32,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 ;            renderer = GetComponentInChildren<Renderer>();
             target = GameObject.FindWithTag("Player");
             agent = GetComponent<NavMeshAgent>();
-            agent.speed = Speed;
+            agent.speed = 1;
             animator = GetComponent<Animator>();
             SetState("Nomal");
             ai = GetComponent<AICharacterControl>();

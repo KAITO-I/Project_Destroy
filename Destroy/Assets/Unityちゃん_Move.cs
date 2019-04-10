@@ -141,7 +141,7 @@ public class Unityちゃん_Move: MonoBehaviour
         {
             cameraForward = Vector3.Scale(camera_pos.forward, new Vector3(1, 1, 1)).normalized;
 
-            moveForward = v* 2 * cameraForward + h  * camera_pos.right;
+            moveForward = v* 2 * cameraForward + h * 1.5f  * camera_pos.right;
 
             moveForward.y = transform.position.y;
         }

@@ -9,11 +9,14 @@ public class MainGameManaer : MonoBehaviour
     [SerializeField]
     Animator startMsgAnim;
 
+    private TextMeshProUGUI gameoverText;
+
     private void Awake()
     {
         this.cm = GetComponent<CameraMove>();
 
         //スポーン
+        gameoverText.enabled = false;
     }
 
     private void Start()
@@ -31,5 +34,17 @@ public class MainGameManaer : MonoBehaviour
         //ゲーム開始
         this.startMsgAnim.enabled = true;
         this.startMsgAnim.Play(0);
+    }
+
+    public void GameSet()
+    {
+        StartCoroutine(EndGameCorutine());
+    }
+
+    private IEnumerator EndGameCorutine()
+    {
+        gameoverText.enabled = true;
+        yield return new WaitForSeconds(5f);
+        SceneController.Instance.Load("Title");
     }
 }
