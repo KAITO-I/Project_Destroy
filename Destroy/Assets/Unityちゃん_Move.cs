@@ -161,6 +161,7 @@ public class Unityちゃん_Move: MonoBehaviour
         {
 
             transform.rotation = Quaternion.LookRotation(new_diff);  //ベクトルの情報をQuaternion.LookRotationに引き渡し回転量を取得しプレイヤーを回転させる
+
         }
         P_pos = transform.position; //プレイヤーの位置を更新
     }
