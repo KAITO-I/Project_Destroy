@@ -81,7 +81,7 @@ public class TitleManager : MonoBehaviour
         button.SetSelecting(false);
         button.Selected();
         yield return new WaitForSeconds(0.5f);
-        SceneController.Instance.Load("MainGame");
+        SceneController.Instance.Load("jam");
     }
 
     public IEnumerator OnClickRanking()
