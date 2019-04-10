@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class judge : MonoBehaviour
+public class Judge : MonoBehaviour
 {
     public List<GameObject> Char;
 

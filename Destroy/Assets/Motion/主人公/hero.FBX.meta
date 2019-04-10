@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: 77423adf984bf914080fe1b7728d9291
+guid: a43e70baba0addc4b958981592df8366
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: 02 - Default
-    2100002: 03 - Default
-    2100004: 01 - Default
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: f-body
+    100000: hair
+    100002: //RootNode
+    100004: shirts
+    400000: hair
+    400002: //RootNode
+    400004: shirts
+    2100000: 'Material #26'
+    2100002: 'Material #25'
+    2300000: hair
+    2300002: shirts
+    3300000: hair
+    3300002: shirts
+    4300000: hair
+    4300002: shirts
     7400000: Take 001
     9500000: //RootNode
     2186277476908879412: ImportLogs
@@ -83,11 +89,21 @@ ModelImporter:
     serializedVersion: 2
     human: []
     skeleton:
-    - name: child_man(Clone)
+    - name: hero(Clone)
       parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: hair
+      parentName: hero(Clone)
+      position: {x: -0, y: 0.8299518, z: -0.011567504}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.9914782, y: 1, z: 1.2641557}
+    - name: shirts
+      parentName: hero(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 0.95099276, y: 1, z: 1.2125359}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -97,10 +113,10 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 3
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

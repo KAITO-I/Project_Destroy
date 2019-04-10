@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Human_Animator
+  m_Name: "Human_Anim_\u6B69\u304D"
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Flag
@@ -247,10 +247,10 @@ AnimatorStateMachine:
     m_Position: {x: 240, y: 228, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102937621031926542}
-    m_Position: {x: 480, y: 0, z: 0}
+    m_Position: {x: 516, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102641919694036730}
-    m_Position: {x: 252, y: 36, z: 0}
+    m_Position: {x: 552, y: 48, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102444341560321664}
     m_Position: {x: 240, y: 120, z: 0}
@@ -259,7 +259,7 @@ AnimatorStateMachine:
     m_Position: {x: 516, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102116128787688848}
-    m_Position: {x: 507.77643, y: 287.02582, z: 0}
+    m_Position: {x: 240, y: 312, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
