@@ -12,6 +12,8 @@ public class MainGameManaer : MonoBehaviour
     private void Awake()
     {
         this.cm = GetComponent<CameraMove>();
+
+        //スポーン
     }
 
     private void Start()
