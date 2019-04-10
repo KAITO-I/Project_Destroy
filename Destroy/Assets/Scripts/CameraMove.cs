@@ -13,12 +13,12 @@ public class CameraMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //StartCoroutine(StartCamera());
+    }
+    public IEnumerator StartCamera()
+    {
         camdefpos = camera.transform.position;
         move = movePos.transform.position;
-        StartCoroutine(StartCamera());
-    }
-    IEnumerator StartCamera()
-    {
         float time = 0;
         do
         {
@@ -34,17 +34,10 @@ public class CameraMove : MonoBehaviour
             camera.transform.Rotate(new Vector3(-1,0,0));
             yield return  null;
         }
-        yield return new WaitForSeconds(0.05f);
-        startText.gameObject.SetActive(true);
-        Color cl;
-        for (int i = 0;i < 255; i++)
-        {
-            cl = startText.color;
-            cl.a = 1f-((1f/255)*i);
-            startText.color = cl;
-            yield return null;
-        }
-        startText.gameObject.SetActive(false);
+        //yield return new WaitForSeconds(0.05f);
+        //startText.gameObject.SetActive(true);
+        //yield return new WaitForSeconds(3f);
+        //startText.gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()

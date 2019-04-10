@@ -1,18 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MainGameManaer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    CameraMove cm;
+    [SerializeField]
+    Animator startMsgAnim;
 
+    private void Awake()
+    {
+        this.cm = GetComponent<CameraMove>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        StartCoroutine(OpeningAndStartGame());
+        this.startMsgAnim.enabled = false;
+    }
+
+    private IEnumerator OpeningAndStartGame()
+    {
+        //カメラワーク
+        var startCamera = this.cm.StartCamera();
+        yield return StartCoroutine(startCamera);
+
+        //ゲーム開始
+        this.startMsgAnim.enabled = true;
+        this.startMsgAnim.Play(0);
     }
 }
