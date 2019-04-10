@@ -10,15 +10,13 @@ public class CharaData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //GameObject.Find("Canvas").GetComponent<ScoreManager>().Scorecalc(gameObject,haveItem);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)){
-            GameObject.Find("Canvas").GetComponent<ScoreManager>().Scorecalc(gameObject);
-        }
+
     }
     public void SetItem(ItemData Item)
     {

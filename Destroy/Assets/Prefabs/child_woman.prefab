@@ -704,6 +704,8 @@ MonoBehaviour:
   target: {fileID: 0}
   agent: {fileID: 0}
   Speed: 3
+  Flag: 0
+  Flag2: 0
 --- !u!114 &5729280413919455858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,6 +719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   haveItem: {fileID: 0}
+  myItem: {fileID: 0}
   pos: {fileID: 3701277074612433213}
 --- !u!1 &3648870261987471148
 GameObject:
