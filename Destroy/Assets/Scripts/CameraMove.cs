@@ -14,8 +14,9 @@ public class CameraMove : MonoBehaviour
     void Start()
     {
         //StartCoroutine(StartCamera());
+
     }
-    public IEnumerator StartCamera()
+    public  IEnumerator StartCamera()
     {
         camdefpos = camera.transform.position;
         move = movePos.transform.position;
@@ -34,10 +35,11 @@ public class CameraMove : MonoBehaviour
             camera.transform.Rotate(new Vector3(-1,0,0));
             yield return  null;
         }
-        //yield return new WaitForSeconds(0.05f);
-        //startText.gameObject.SetActive(true);
-        //yield return new WaitForSeconds(3f);
-        //startText.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.05f);
+        startText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        startText.gameObject.SetActive(false);
+
     }
     // Update is called once per frame
     void Update()
