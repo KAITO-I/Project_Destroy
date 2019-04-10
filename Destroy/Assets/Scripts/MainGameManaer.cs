@@ -4,14 +4,30 @@ using UnityEngine;
 
 public class MainGameManaer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private enum GameStatus
     {
-
+        Opening
     }
 
-    // Update is called once per frame
-    void Update()
+    private GameStatus status;
+
+    private void Awake()
+    {
+        
+    }
+
+    private void Start()
+    {
+        this.status = GameStatus.Opening;
+        
+    }
+
+    private IEnumerator Opening()
+    {
+        
+    }
+
+    private void Update()
     {
         
     }
