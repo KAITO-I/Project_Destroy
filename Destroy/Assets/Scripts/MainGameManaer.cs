@@ -10,15 +10,18 @@ public class MainGameManaer : MonoBehaviour
     Animator startMsgAnim;
 
     [SerializeField] GameObject gameoverText;
-
     private void Awake()
     {
         this.cm = GetComponent<CameraMove>();
         GetComponent<ScoreManager>().ScoreSet(0);
         //スポーン
+        CharaSpawn cp = GetComponent<CharaSpawn>();
+        for(int i = 0;i < 10; i++)
+        {
+            cp.Spawn();
+        }
         gameoverText.SetActive(false);
     }
-
     private void Start()
     {
         StartCoroutine(OpeningAndStartGame());
@@ -44,6 +47,6 @@ public class MainGameManaer : MonoBehaviour
     {
         gameoverText.SetActive(true);
         yield return new WaitForSeconds(5f);
-        SceneController.Instance.Load("Title");
+        SceneController.Instance.Load("Result");
     }
 }

@@ -23,12 +23,13 @@ public class Ranking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nowScore = ScoreManager.GetScore();
-        myscore = nowScore;
+       nowScore = ScoreManager.GetScore();
         if (test)
         {
             GetKariScore();
         }
+        myscore = nowScore;
+
         GetHighScore();
         //        ScoreSet();
         ScoreCalc();
@@ -95,7 +96,7 @@ public class Ranking : MonoBehaviour
     }
     void Display()
     {
-        ScoreText.text = "被害総額: " + myScore + "円";
+        ScoreText.text = "被害総額: " + myscore.ToString() + "円";
         for (int i = 0; i < rankingi.Length; i++)
         {
             rankingText[i].text = (i + 1) + "位 ：" + (rankingi[i]) + "円";

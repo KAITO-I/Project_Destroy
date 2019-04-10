@@ -459,9 +459,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nowScore: 0
-  kariScore: 5555
+  myscore: 0
+  kariScore: 1111
   timebo: 5
-  test: 1
+  test: 0
   rankingText:
   - {fileID: 547928523}
   - {fileID: 1338905525}
