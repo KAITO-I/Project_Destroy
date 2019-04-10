@@ -61,4 +61,8 @@ public class RankingGet : MonoBehaviour
             rankingText[i].text = (i + 1) + "位 ：" + (rankingi[i]) + "円";
         }
     }
+    public void Totitle()
+    {
+        SceneController.Instance.Load("Title");
+    }
 }
