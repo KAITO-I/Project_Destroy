@@ -10,9 +10,9 @@ public class ItemSet : MonoBehaviour {
     {
         Item = ScriptableObject.CreateInstance<ItemData>();
 		Items = new List<ItemData>();
-		SetEnemyData();
+		SetItemData();
     }
-    void SetEnemyData()
+    void SetItemData()
     {
 		ItemData[] it = Resources.LoadAll<ItemData>("Item");
         for(int i = 0;i < it.Length; i++)
@@ -21,12 +21,13 @@ public class ItemSet : MonoBehaviour {
 			Items.Add(t);
 		}
     }
-    public List<ItemData> GetEnemyList()
+    public List<ItemData> GetItemList()
     {
         return Items;
     }
-    public ItemData GetEnemyData(int ind)
+    public ItemData GetItemData(int ind)
     {
         return Instantiate(Items[ind]);
     }
+
 }
