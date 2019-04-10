@@ -14,7 +14,7 @@ public class MainGameManaer : MonoBehaviour
     private void Awake()
     {
         this.cm = GetComponent<CameraMove>();
-
+        GetComponent<ScoreManager>().ScoreSet(0);
         //スポーン
         gameoverText.enabled = false;
     }
