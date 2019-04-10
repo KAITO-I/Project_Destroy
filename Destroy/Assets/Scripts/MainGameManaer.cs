@@ -9,14 +9,14 @@ public class MainGameManaer : MonoBehaviour
     [SerializeField]
     Animator startMsgAnim;
 
-    private TextMeshProUGUI gameoverText;
+    [SerializeField] GameObject gameoverText;
 
     private void Awake()
     {
         this.cm = GetComponent<CameraMove>();
 
         //スポーン
-        gameoverText.enabled = false;
+        gameoverText.SetActive(false);
     }
 
     private void Start()
@@ -36,14 +36,13 @@ public class MainGameManaer : MonoBehaviour
         this.startMsgAnim.Play(0);
     }
 
-    public void GameSet()
-    {
+    public void GameSet() {
         StartCoroutine(EndGameCorutine());
     }
 
     private IEnumerator EndGameCorutine()
     {
-        gameoverText.enabled = true;
+        gameoverText.SetActive(true);
         yield return new WaitForSeconds(5f);
         SceneController.Instance.Load("Title");
     }

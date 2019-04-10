@@ -46,7 +46,7 @@ public class Unityちゃん_Move: MonoBehaviour
     private Vector3 P_pos; //プレイヤーのポジション
     private Vector3 S_pos; //プレイヤーのポジション
 
-    MainGameManaer gameManaer;
+    [SerializeField] MainGameManaer gameManaer;
     private Vector3 diff;
     private Vector3 new_diff;
     private float pos_y;
@@ -55,7 +55,6 @@ public class Unityちゃん_Move: MonoBehaviour
     void Start()
     {
         Sp = Speed;
-        gameManaer = GetComponent<MainGameManaer>();
         // Animatorコンポーネントを取得する
         anim = GetComponent<Animator>();
 
@@ -190,7 +189,6 @@ public class Unityちゃん_Move: MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
-            Debug.Log("AAA");
             gameManaer.GameSet();
         }
     }
