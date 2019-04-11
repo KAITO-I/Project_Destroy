@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 24424275}
   m_Layer: 0
   m_Name: Target (2)
-  m_TagString: Untagged
+  m_TagString: point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 134996628}
   m_Layer: 0
   m_Name: Target
-  m_TagString: Untagged
+  m_TagString: point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -672,6 +672,7 @@ MonoBehaviour:
   Speed: 0.1
   Sp: 0
   moveForward: {x: 0, y: 0, z: 0}
+  gameManaer: {fileID: 0}
   Move_Flag: 1
 --- !u!136 &466035741
 CapsuleCollider:
@@ -1211,7 +1212,7 @@ GameObject:
   - component: {fileID: 1188969049}
   m_Layer: 0
   m_Name: Target (1)
-  m_TagString: Untagged
+  m_TagString: point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1502,6 +1503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 134996629}
+  obj: []
+  points: []
 --- !u!1 &1553178643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1978,15 +1981,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5528430140935838293, guid: 6305164d2bfb8894e9959309bdb6ac29,
-        type: 3}
-      propertyPath: Speed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 9087008164314364912, guid: 6305164d2bfb8894e9959309bdb6ac29,
         type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 24424276}
+    - target: {fileID: 5528430140935838293, guid: 6305164d2bfb8894e9959309bdb6ac29,
+        type: 3}
+      propertyPath: Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6305164d2bfb8894e9959309bdb6ac29, type: 3}
