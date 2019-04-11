@@ -587,6 +587,7 @@ MonoBehaviour:
   - {fileID: 1305507119}
   charas:
   - {fileID: 3648870261987471146, guid: 5095a317492500f4e90eefc37a3e6eae, type: 3}
+  spawnSpan: 10
 --- !u!114 &748841466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587ba9c125f0de240b5f4972ead7b11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreTxt: {fileID: 0}
 --- !u!1 &968432667
 GameObject:
   m_ObjectHideFlags: 0

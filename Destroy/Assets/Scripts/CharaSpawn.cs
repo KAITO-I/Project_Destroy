@@ -7,13 +7,23 @@ public class CharaSpawn : MonoBehaviour
     public GameObject[] spawmPoint;
     public GameObject[] charas;
     ItemSet Item;
-    
+    float spawnTime;
+    public float spawnSpan = 30f;
     // Start is called before the first frame update
     void Start()
     {
+        spawnTime = spawnSpan;
         Item = GetComponent<ItemSet>();
-        Item.SetItemData();
-        Spawn();
+        //Item.SetItemData();
+    }
+    void Update()
+    {
+        spawnTime -= Time.deltaTime;
+        if(spawnTime <= 0f)
+        {
+            spawnTime = spawnSpan;
+            Spawn();
+        }
     }
     public void Spawn()
     {
