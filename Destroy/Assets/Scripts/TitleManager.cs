@@ -5,115 +5,163 @@ using UnityEngine.UI;
 
 public class TitleManager : MonoBehaviour
 {
-    private int selectNum;
-    private Dictionary<int, GameObject> buttonDic;
+    // Animation
+    [SerializeField] Animation openingAnim;
 
+    // Button(UI)
+    private int selectedMenuNum;
+    private Dictionary<int, GameObject> menuDic;
+    private bool selected;
+
+    // Audio
     private AudioSource audio;
-    [SerializeField] AudioClip selectButtonSE;
+    [SerializeField] AudioClip menuMoveSE;
     [SerializeField] AudioClip pushStartButtonSE;
     [SerializeField] AudioClip pushButtonSE;
 
-    void Start()
+    // 隠しコマンド
+    [SerializeField] bool hiddenCommand;
+    private KeyCode[] command;
+    private int successLength;
+
+    //==============================
+    // 初期化
+    //==============================
+    private void Awake()
     {
         Cursor.visible = false;
 
-        this.selectNum = 0;
-        this.buttonDic = new Dictionary<int, GameObject>();
-        this.buttonDic.Add(0, GameObject.Find("Canvas/TitleOp/MainUI/StartButton"));
-        this.buttonDic.Add(1, GameObject.Find("Canvas/TitleOp/MainUI/RankingButton"));
-        this.buttonDic.Add(2, GameObject.Find("Canvas/TitleOp/MainUI/EndButton"));
+        this.selectedMenuNum = 0;
+        this.menuDic = new Dictionary<int, GameObject>()
+        {
+            { 0, GameObject.Find("Canvas/UI/StartButton") },
+            { 1, GameObject.Find("Canvas/UI/RankingButton") },
+            { 2, GameObject.Find("Canvas/UI/EndButton") }
+        };
+        this.selected = false;
 
         this.audio = GetComponent<AudioSource>();
 
-        this.buttonDic[0].GetComponent<TitleUIManager>().SetSelecting(true);
+        this.command = new KeyCode[]
+        {
+            KeyCode.UpArrow, KeyCode.UpArrow,
+            KeyCode.DownArrow, KeyCode.DownArrow,
+            KeyCode.LeftArrow, KeyCode.RightArrow,
+            KeyCode.LeftArrow, KeyCode.RightArrow,
+            KeyCode.B, KeyCode.A,
+        };
+        this.successLength = -1;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        if (!this.selected)
         {
-            if (this.selectNum < 2)
+            if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && this.selectedMenuNum < this.menuDic.Count - 1)
             {
-                this.selectNum++;
-
-                PlaySound(this.selectButtonSE);
-                this.buttonDic[selectNum].GetComponent<TitleUIManager>().SetSelecting(true);
-                this.buttonDic[selectNum - 1].GetComponent<TitleUIManager>().SetSelecting(false);
+                this.selectedMenuNum++;
+                UpdateMenu();
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-        {
-            if (this.selectNum > 0)
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && this.selectedMenuNum > 0)
             {
-                this.selectNum--;
-
-                PlaySound(this.selectButtonSE);
-                this.buttonDic[selectNum].GetComponent<TitleUIManager>().SetSelecting(true);
-                this.buttonDic[selectNum + 1].GetComponent<TitleUIManager>().SetSelecting(false);
+                this.selectedMenuNum--;
+                UpdateMenu();
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            switch (this.selectNum)
+            if (Input.GetKeyDown(KeyCode.Space)) SelectMenu();
+
+            for (int i = 0; i < this.command.Length; i++)
             {
-                case 0:
-                    StartCoroutine(OnClickStart());
+                if (Input.GetKeyDown(this.command[i]))
+                {
+                    Command();
                     break;
-
-                case 1:
-                    StartCoroutine(OnClickRanking());
-                    break;
-
-                case 2:
-                    StartCoroutine(OnClickEnd());
-                    break;
+                }
             }
         }
     }
 
-    private IEnumerator OnClickStart()
+    //==============================
+    // メニュー更新
+    //==============================
+    private void UpdateMenu()
     {
-        PlaySound(this.pushStartButtonSE);
-
-        TitleUIManager button = this.buttonDic[0].GetComponent<TitleUIManager>();
-        button.SetSelecting(false);
-        button.Selected();
-        yield return new WaitForSeconds(0.5f);
-        SceneController.Instance.Load("jam");
+        for (int i = 0; i < this.menuDic.Count; i++)
+        {
+            if (i == this.selectedMenuNum)
+                this.menuDic[i].GetComponent<TitleUIManager>().SetSelecting(true);
+            else
+                this.menuDic[i].GetComponent<TitleUIManager>().SetSelecting(false);
+        }
+        PlaySound(this.menuMoveSE);
     }
 
-    public IEnumerator OnClickRanking()
+    //==============================
+    // メニュー選択
+    //==============================
+    private IEnumerator SelectMenu()
     {
-        PlaySound(this.pushButtonSE);
+        this.selected = true;
+        TitleUIManager menuUI = this.menuDic[this.selectedMenuNum].GetComponent<TitleUIManager>();
+        menuUI.SetSelecting(false);
+        menuUI.Selected();
+        PlaySound(this.selectedMenuNum == 0 ? this.pushStartButtonSE : this.pushButtonSE);
 
-        TitleUIManager button = this.buttonDic[1].GetComponent<TitleUIManager>();
-        button.SetSelecting(false);
-        button.Selected();
         yield return new WaitForSeconds(0.5f);
-        SceneController.Instance.Load("Ranking");
-    }
 
-    public IEnumerator OnClickEnd()
-    {
-        PlaySound(this.pushButtonSE);
+        switch (this.selectedMenuNum)
+        {
+            case 0:
+                SceneController.Instance.Load("jam");
+                break;
 
-        TitleUIManager button = this.buttonDic[2].GetComponent<TitleUIManager>();
-        button.SetSelecting(false);
-        button.Selected();
-        yield return new WaitForSeconds(0.5f);
+            case 1:
+                SceneController.Instance.Load("Ranking");
+                break;
+
+            case 2:
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+                UnityEditor.EditorApplication.isPlaying = false;
 #endif
 #if UNITY_STANDALONE
-        UnityEngine.Application.Quit();
+                UnityEngine.Application.Quit();
 #endif
+                break;
+        }
     }
 
+    //==============================
+    // 再生
+    //==============================
     private void PlaySound(AudioClip sound)
     {
         this.audio.clip = sound;
         this.audio.Play();
+    }
+
+    //==============================
+    // 隠しコマンド
+    //==============================
+    private void Command()
+    {
+        for (int i = 0; i < this.command.Length; i++)
+        {
+            if (this.successLength != i - 1) continue;
+
+            if (Input.GetKeyDown(command[i]))
+            {
+                this.successLength = i;
+                //if (this.successLength == this.command.Length - 1) SceneController.Instance.Load("TarakoTitle");
+                if (this.successLength == this.command.Length - 1) Debug.Log("読込");
+                Debug.Log("OK");
+            }
+            else
+            {
+                this.successLength = -1;
+                if (Input.GetKeyDown(command[0])) this.successLength = 0;
+                Debug.Log("NG");
+            }
+            break;
+        }
     }
 }
