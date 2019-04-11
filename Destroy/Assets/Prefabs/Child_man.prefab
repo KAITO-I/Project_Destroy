@@ -2116,7 +2116,7 @@ Transform:
   m_GameObject: {fileID: 3406583605985437544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.8926611, y: 0, z: -1.1655473}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3406583605985147596}
   - {fileID: 3406583605985147594}
@@ -2185,6 +2185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  points: []
 --- !u!114 &3406583605972752833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2200,7 +2201,7 @@ MonoBehaviour:
   state: 0
   target: {fileID: 0}
   agent: {fileID: 0}
-  Speed: 3.5
+  Speed: 2
   Flag: 0
   Flag2: 0
 --- !u!195 &3406583605972752834

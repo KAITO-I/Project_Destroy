@@ -1500,7 +1500,7 @@ MonoBehaviour:
   state: 0
   target: {fileID: 0}
   agent: {fileID: 0}
-  Speed: 1
+  Speed: 2
   Flag: 0
   Flag2: 0
 --- !u!114 &3574160361596785724
@@ -1547,6 +1547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  points: []
 --- !u!114 &9087008164314364913
 MonoBehaviour:
   m_ObjectHideFlags: 0
