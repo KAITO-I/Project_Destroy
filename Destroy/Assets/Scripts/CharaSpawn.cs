@@ -24,7 +24,9 @@ public class CharaSpawn : MonoBehaviour
     }
     ItemData ItemCalc()
     {
+        Item = GetComponent<ItemSet>();
         int num = Random.Range(1, 101);
+        Item.SetItemData();
         List <ItemData> it= Item.GetItemList();
         switch (num)
         {

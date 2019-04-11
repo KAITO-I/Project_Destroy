@@ -27,6 +27,8 @@ public class ItemFall : MonoBehaviour
         if (grab)
         {
             Debug.Log("Break");
+            GameObject go =  Instantiate(Resources.Load<GameObject>("CFX_Hit_C White"));
+            go.transform.parent = null;
             Destroy(gameObject);
         }
     }

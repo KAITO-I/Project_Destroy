@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Ranking : MonoBehaviour
 {
     public int nowScore;
+    public int myscore;
     //    private int HighScore = 0;
     public int kariScore = 0;
     string rankings;
@@ -22,11 +23,13 @@ public class Ranking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nowScore = ScoreManager.GetScore();
+       nowScore = ScoreManager.GetScore();
         if (test)
         {
             GetKariScore();
         }
+        myscore = nowScore;
+
         GetHighScore();
         //        ScoreSet();
         ScoreCalc();
@@ -93,7 +96,7 @@ public class Ranking : MonoBehaviour
     }
     void Display()
     {
-        ScoreText.text = "被害総額: " + nowScore + "円";
+        ScoreText.text = "被害総額: " + myscore.ToString() + "円";
         for (int i = 0; i < rankingi.Length; i++)
         {
             rankingText[i].text = (i + 1) + "位 ：" + (rankingi[i]) + "円";
@@ -116,5 +119,9 @@ public class Ranking : MonoBehaviour
         Color inText = rankingText[rankinnum].color;
         inText.a = Mathf.Sin(time) * 0.5f + 0.5f;
         rankingText[rankinnum].color = inText;
+    }
+    public void Totitle()
+    {
+        SceneController.Instance.Load("Title");
     }
 }

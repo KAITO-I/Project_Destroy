@@ -32,7 +32,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 ;            renderer = GetComponentInChildren<Renderer>();
             target = GameObject.FindWithTag("Player");
             agent = GetComponent<NavMeshAgent>();
-            agent.speed = Speed;
+            agent.speed = 1;
             animator = GetComponent<Animator>();
             SetState("Nomal");
             ai = GetComponent<AICharacterControl>();
@@ -48,6 +48,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 if (Input.GetKeyDown(KeyCode.Space) && state == EnemyState.Nomal)
                 {
                     Chase();
+                }
+            }
+            if(Flag == true)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    GameObject.Find("MainGameManager").GetComponent<ScoreManager>().Scorecalc(gameObject, gameObject.GetComponent<CharaData>().haveItem);
                 }
             }
             Get();
@@ -86,6 +93,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             agent.speed = Speed;
             ai.Null();
             Get();
+            this.tag = "Enemy";
         }
 
         public void OnTriggerEnter(Collider other)

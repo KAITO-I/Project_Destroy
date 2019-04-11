@@ -17,7 +17,7 @@ public class Unityちゃん_Move: MonoBehaviour
 
     // 以下キャラクターコントローラ用パラメタ
     // 前進速度
-    public float Speed = 7.0f;
+    public float Speed = 0f;
     public float Sp;
     private float h;
     private float v;
@@ -46,7 +46,7 @@ public class Unityちゃん_Move: MonoBehaviour
     private Vector3 P_pos; //プレイヤーのポジション
     private Vector3 S_pos; //プレイヤーのポジション
 
-
+    [SerializeField] MainGameManaer gameManaer;
     private Vector3 diff;
     private Vector3 new_diff;
     private float pos_y;
@@ -55,7 +55,6 @@ public class Unityちゃん_Move: MonoBehaviour
     void Start()
     {
         Sp = Speed;
-
         // Animatorコンポーネントを取得する
         anim = GetComponent<Animator>();
 
@@ -141,7 +140,7 @@ public class Unityちゃん_Move: MonoBehaviour
         {
             cameraForward = Vector3.Scale(camera_pos.forward, new Vector3(1, 1, 1)).normalized;
 
-            moveForward = v* 2 * cameraForward + h  * camera_pos.right;
+            moveForward = v* 2 * cameraForward + h * 1.5f  * camera_pos.right;
 
             moveForward.y = transform.position.y;
         }
@@ -184,6 +183,14 @@ public class Unityちゃん_Move: MonoBehaviour
     void Motion_End()
     {
         Restart();
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Enemy")
+        {
+            gameManaer.GameSet();
+        }
     }
 }
 
