@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 541756766477497414}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Road_T
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,6 +41,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 8c655acb08a1c4441bad3313deda4f45, type: 3}
       propertyPath: m_Name
       value: road_teji
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8c655acb08a1c4441bad3313deda4f45, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8c655acb08a1c4441bad3313deda4f45, type: 3}
       propertyPath: m_LocalPosition.x
