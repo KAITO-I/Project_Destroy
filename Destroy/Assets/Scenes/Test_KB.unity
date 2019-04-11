@@ -1723,6 +1723,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2029088422747596383, guid: 3f01852a3f9f7fb4ab31cf3bbee5f304,
         type: 3}
+      propertyPath: Object.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029088422747596383, guid: 3f01852a3f9f7fb4ab31cf3bbee5f304,
+        type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 134996629}
