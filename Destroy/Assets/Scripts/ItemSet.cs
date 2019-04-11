@@ -10,10 +10,11 @@ public class ItemSet : MonoBehaviour {
     {
         Item = ScriptableObject.CreateInstance<ItemData>();
 		Items = new List<ItemData>();
-		
+        //SetItemData();
     }
     public void SetItemData()
     {
+        Items.Clear();
 		ItemData[] it = Resources.LoadAll<ItemData>("Item");
         for(int i = 0;i < it.Length; i++)
 		{

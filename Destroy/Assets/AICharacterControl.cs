@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
+
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
     [RequireComponent(typeof (UnityEngine.AI.NavMeshAgent))]
@@ -10,10 +10,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public UnityEngine.AI.NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
         public ThirdPersonCharacter character { get; private set; } // the character we are controlling
         public Transform target;                                    // target to aim for
-        public List<Transform> Object;
-        public GameObject[] obj;
-
-        static System.Random random = new System.Random();
 
         private void Start()
         {
@@ -23,11 +19,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 	        agent.updateRotation = false;
 	        agent.updatePosition = true;
-            obj = GameObject.FindGameObjectsWithTag("Point");
-
-            target = obj[random.Next(0,obj.Length)].transform;
         }
-
 
 
         private void Update()

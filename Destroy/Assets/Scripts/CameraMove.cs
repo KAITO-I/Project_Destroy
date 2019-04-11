@@ -18,6 +18,8 @@ public class CameraMove : MonoBehaviour
     }
     public  IEnumerator StartCamera()
     {
+        yield return null;
+        yield break;
         camdefpos = camera.transform.position;
         move = movePos.transform.position;
         float time = 0;

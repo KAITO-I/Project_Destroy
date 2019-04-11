@@ -4,8 +4,7 @@ using UnityEngine;
 using TMPro;
 
 public class MainGameManaer : MonoBehaviour
-{ 
-
+{
     CameraMove cm;
     [SerializeField]
     Animator startMsgAnim;
