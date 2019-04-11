@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RandomPosition : MonoBehaviour
 {
-
+    static System.Random random = new System.Random();
     void Start()
     {
         StartCoroutine(RePositionWithDelay());
@@ -16,6 +16,7 @@ public class RandomPosition : MonoBehaviour
             SetRandomPosition();
             // コルーチンを遅延させてから再開させる
             yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(random.Next(10));
         }
     }
 
