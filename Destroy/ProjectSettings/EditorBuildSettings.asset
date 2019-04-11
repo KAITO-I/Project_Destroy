@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/jam.unity
     guid: 8a98533cb7f06c24bb9344b21059e8da
+  - enabled: 1
+    path: Assets/Scenes/Result.unity
+    guid: 73ad62c7704abad4fb527195b44e0c53
   m_configObjects: {}

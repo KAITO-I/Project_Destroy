@@ -16,9 +16,10 @@ public class MainGameManaer : MonoBehaviour
         GetComponent<ScoreManager>().ScoreSet(0);
         //スポーン
         CharaSpawn cp = GetComponent<CharaSpawn>();
+        int spv = cp.spawmPoint.Length;
         for(int i = 0;i < 50; i++)
         {
-            cp.Spawn();
+            cp.Spawn(i % spv);
         }
         gameoverText.SetActive(false);
     }

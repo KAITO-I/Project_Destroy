@@ -19,12 +19,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         AICharacterControl ai;
         public GameObject target;
         public NavMeshAgent agent;
-        // public Material Red, Blue;
+         public Material Red, Blue;
         private new Renderer renderer = null;
 
         public float Speed;
-        public bool Flag = false, Flag2 = false;
+        public bool Flag = false, Flag2 = false, Flag3 = true;
         Animator animator;
+        
 
         void Start()
         {
@@ -40,7 +41,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         void Update()
         {
-            //if (state == EnemyState.Chase) renderer.material = Red;
+          
             //if (state == EnemyState.Nomal) renderer.material = Blue;
 
             if (Flag == true && Flag2 == false)
@@ -50,10 +51,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     Chase();
                 }
             }
-            if(Flag == true)
+            if(Flag == true && Flag3 == true)
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    Flag3 = false;
                     GameObject.Find("MainGameManager").GetComponent<ScoreManager>().Scorecalc(gameObject, gameObject.GetComponent<CharaData>().haveItem);
                 }
             }
@@ -94,6 +96,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             ai.Null();
             Get();
             this.tag = "Enemy";
+            if (state == EnemyState.Chase) renderer.material = Red;
+
         }
 
         public void OnTriggerEnter(Collider other)

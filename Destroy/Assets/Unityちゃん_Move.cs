@@ -50,7 +50,7 @@ public class Unityちゃん_Move: MonoBehaviour
     private Vector3 diff;
     private Vector3 new_diff;
     private float pos_y;
-    public bool Move_Flag = true;
+    public bool Move_Flag = true , Flag = true;
     // 初期化
     void Start()
     {
@@ -126,7 +126,7 @@ public class Unityちゃん_Move: MonoBehaviour
 
         S_pos = transform.position;
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && Flag == true)
         {
             anim.SetBool("Stop", true);
             Move_Flag = false;
@@ -190,6 +190,8 @@ public class Unityちゃん_Move: MonoBehaviour
         if(other.tag == "Enemy")
         {
             gameManaer.GameSet();
+            Move_Flag = false;
+            Flag = false;
         }
     }
 }

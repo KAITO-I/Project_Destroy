@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        //scoreTxt.text = score.ToString();
+        scoreTxt.text = score.ToString() + "円";
     }
     //スコアの初期設定
     public void ScoreSet(int sc)
@@ -25,12 +25,9 @@ public class ScoreManager : MonoBehaviour
     public void Scorecalc(GameObject obj,ItemData id)
     {
         CharaData cd = obj.GetComponent<CharaData>();
-        id.HP--;
-        if (id.HP == 0)
-        {
-            GameObject mi = cd.myItem;
-            cd.myItem = null;
-            mi.GetComponent<ItemFall>().GrabtyChange();
-        }
+        score += id.Price;
+        GameObject mi = cd.myItem;
+        cd.myItem = null;
+        mi.GetComponent<ItemFall>().GrabtyChange();
     }
 }
