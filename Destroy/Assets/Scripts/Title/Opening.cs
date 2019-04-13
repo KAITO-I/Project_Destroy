@@ -8,6 +8,7 @@ using UnityEditor;
 
 public class Opening : MonoBehaviour
 {
+    [SerializeField] float animationSpeed;
     [SerializeField] int waitFrame;
     [SerializeField] AudioClip entrySE;
     private Animation destroyer;
@@ -35,8 +36,9 @@ public class Opening : MonoBehaviour
             //===== カスタマイズ =====
             // オープニングアニメーション
             EditorGUILayout.LabelField("オープニングアニメーション");
-            opening.waitFrame = EditorGUILayout.IntField("待機間隔フレーム", opening.waitFrame);
-            opening.entrySE   = EditorGUILayout.ObjectField("SE", opening.entrySE, typeof(AudioClip), true) as AudioClip;
+            opening.animationSpeed = EditorGUILayout.FloatField("速度", opening.animationSpeed);
+            opening.waitFrame      = EditorGUILayout.IntField("待機間隔フレーム", opening.waitFrame);
+            opening.entrySE        = EditorGUILayout.ObjectField("SE", opening.entrySE, typeof(AudioClip), true) as AudioClip;
 
             EditorGUILayout.Space();
 
@@ -77,6 +79,7 @@ public class Opening : MonoBehaviour
     public IEnumerator PlayOpeningAnimation()
     {
         // 破壊者の登場
+        this.destroyer["Opening_Destroyer"].speed = this.animationSpeed;
         this.destroyer.Play();
         SoundManager.Instance.PlaySE(this.entrySE);
         while (this.destroyer.isPlaying) yield return null;
@@ -85,6 +88,7 @@ public class Opening : MonoBehaviour
         // 市民の登場
         if (!this.skip)
         {
+            this.citizen["Opening_Citizen"].speed = this.animationSpeed;
             this.citizen.Play();
             SoundManager.Instance.PlaySE(this.entrySE);
             while (this.citizen.isPlaying) yield return null;
@@ -94,6 +98,7 @@ public class Opening : MonoBehaviour
         // タイトルの表示
         if (!this.skip)
         {
+            this.title["Opening_Title"].speed = this.animationSpeed;
             this.title.Play();
             SoundManager.Instance.PlaySE(this.entrySE);
             while (this.title.isPlaying) yield return null;
