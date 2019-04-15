@@ -25,8 +25,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public Vector3 vector3;
         public float Speed;
         public bool Flag = false, Flag2 = false, Flag3 = true , cor_Flag;
-        Animator animator;
+        public Animator animator;
         GameObject tarako_prefab;
+        public Tarako_Original tarako;
 
         void Start()
         {
@@ -88,6 +89,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if (state == EnemyState.Chase && Flag2 == true)
             {
                 agent.SetDestination(target.transform.position);
+                if(tarako != null) tarako.Anim_Start();
                 if (cor_Flag == true)
                 {
                     StartCoroutine(Fake());

@@ -24,13 +24,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	        agent.updatePosition = true;
             points = GameObject.FindGameObjectsWithTag("point");
             target = points[random.Next(0, points.Length)].transform;
+            pos = target.position;
 
         }
 
 
         private void Update()
         {
-            pos = target.position;
             if (target != null)
                 agent.SetDestination(target.position);
 
@@ -42,6 +42,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if( (transform.position - target.position).magnitude <= 1.0)
             {
                 target = points[random.Next(0, points.Length)].transform;
+                pos = target.position;
 
             }
         }
