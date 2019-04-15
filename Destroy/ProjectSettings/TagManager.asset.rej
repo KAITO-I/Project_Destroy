@@ -1,0 +1,12 @@
+diff a/Destroy/ProjectSettings/TagManager.asset b/Destroy/ProjectSettings/TagManager.asset	(rejected hunks)
+@@ -19,8 +19,8 @@
+   - 
+   - PostProcessing
+   - Floor
+-  - ShowBuilding
+-  - HideBuilding
++  - 
++  - 
+   - 
+   - 
+   - 
