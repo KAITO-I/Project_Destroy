@@ -7,59 +7,40 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 {
     [RequireComponent(typeof(ThirdPersonCharacter))]
     // [RequireComponent(typeof(NavMeshAgent))]
-    public class Homing_tarako : MonoBehaviour
+    public class Homing_tarako_child : MonoBehaviour
     {
         public enum EnemyState
         {
-            Nomal,
             Chase
         };
-        public float SpownTime;
+
         public EnemyState state;
         AICharacterControl ai;
-        public GameObject target,Prefab;
+        public GameObject target;
         public NavMeshAgent agent;
         public Material Red, Blue;
         private new Renderer renderer = null;
-        public new Transform transform;
-        public Vector3 vector3;
+
         public float Speed;
-        public bool Flag = false, Flag2 = false, Flag3 = true , cor_Flag;
+        public bool Flag = false, Flag2 = false, Flag3 = true, cor_Flag;
+        public GameObject tarako_prefab;
         Animator animator;
-        GameObject tarako_prefab;
+
 
         void Start()
         {
             target = GameObject.FindWithTag("Player");
             renderer = GetComponentInChildren<Renderer>();
             agent = GetComponent<NavMeshAgent>();
-            agent.speed = 1;
+            agent.speed = Speed;
             animator = GetComponent<Animator>();
-            SetState("Nomal");
+            SetState("Chase");
             ai = GetComponent<AICharacterControl>();
             cor_Flag = true;
         }
 
         void Update()
         {
-            transform = this.gameObject.transform;
-            if (state == EnemyState.Nomal) renderer.material = Blue;
-
-            if (Flag == true && Flag2 == false)
-            {
-                if (Input.GetKeyDown(KeyCode.Space) && state == EnemyState.Nomal)
-                {
-                    Chase();
-                }
-            }
-            if (Flag == true && Flag3 == true)
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    Flag3 = false;
-                    GameObject.Find("MainGameManager").GetComponent<ScoreManager>().Scorecalc(gameObject, gameObject.GetComponent<CharaData>().haveItem);
-                }
-            }
             Get();
         }
         void Chase()
@@ -73,11 +54,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         public void SetState(string Mode)
         {
-            if (Mode == "Nomal")
-            {
-                state = EnemyState.Nomal;
-
-            }
             if (Mode == "Chase")
             {
                 state = EnemyState.Chase;
@@ -85,7 +61,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         public void Get()
         {
-            if (state == EnemyState.Chase && Flag2 == true)
+            if (state == EnemyState.Chase)
             {
                 agent.SetDestination(target.transform.position);
                 if (cor_Flag == true)
@@ -97,9 +73,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         void Chase_Start()
         {
-            Flag2 = true;
-            Flag = false;
-            agent.speed = Speed;
             ai.Null();
             Get();
             this.tag = "Enemy";
@@ -122,16 +95,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             while (true)
             {
-                yield return new WaitForSeconds(SpownTime);
+                yield return new WaitForSeconds(3.0f);
                 Timer();
             }
         }
 
         void Timer()
         {
-            
-            tarako_prefab =  Instantiate(Prefab,this.transform);
-            tarako_prefab.transform.parent = null;
+
+            //Instantiate(tarako_prefab, this.transform);
             Debug.Log("instance");
         }
     }
