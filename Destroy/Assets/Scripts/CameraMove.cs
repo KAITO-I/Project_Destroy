@@ -18,10 +18,10 @@ public class CameraMove : MonoBehaviour
     }
     public  IEnumerator StartCamera()
     {
-        yield return null;
-        yield break;
+        Camera_offset Co = camera.GetComponent<Camera_offset>();
+        Co.enabled = false;
         camdefpos = camera.transform.position;
-        move = movePos.transform.position;
+        move = GameObject.FindWithTag("Player").transform.position + Co.Vec_T;
         float time = 0;
         do
         {
@@ -32,16 +32,13 @@ public class CameraMove : MonoBehaviour
             yield return null;
         }
         while (moveTime >= time);
-        for(int i = 0;i < 45; i++)
+        for(int i = 0;i < 37; i++)
         {
             camera.transform.Rotate(new Vector3(-1,0,0));
             yield return  null;
         }
         yield return new WaitForSeconds(0.05f);
-        startText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        startText.gameObject.SetActive(false);
-
+        Co.enabled = true;
     }
     // Update is called once per frame
     void Update()
