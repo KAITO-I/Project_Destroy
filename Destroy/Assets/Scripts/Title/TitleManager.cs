@@ -12,9 +12,12 @@ public enum TitleStatus
 
 public class TitleManager : MonoBehaviour
 {
+    [SerializeField] bool tarakoEdition;
+
     public TitleStatus status { private get; set; }
-    private Opening opening;
-    private MainMenu menu;
+    private Opening     opening;
+    private MainMenu    menu;
+    private HideCommand command;
 
     private void Awake()
     {
@@ -22,6 +25,7 @@ public class TitleManager : MonoBehaviour
 
         (this.menu = GetComponent<MainMenu>()).Awaked();
         (this.opening = GetComponent<Opening>()).Awaked();
+        if (!this.tarakoEdition) (this.command = GetComponent<HideCommand>()).Awaked();
     }
 
     private void Start()
@@ -39,7 +43,8 @@ public class TitleManager : MonoBehaviour
                 break;
 
             case TitleStatus.MainMenu:
-
+                this.menu.Updated();
+                if (!this.tarakoEdition) this.command.Updated();
                 break;
 
         }

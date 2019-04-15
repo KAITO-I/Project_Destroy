@@ -41,6 +41,11 @@ public class SoundManager : MonoBehaviour
         this.audio.Play();
     }
 
+    public void StopBGM()
+    {
+        this.audio.Stop();
+    }
+
     public void PlaySE(AudioClip clip)
     {
         StartCoroutine(Instantiate(this.se).GetComponent<SEManager>().PlaySE(clip));

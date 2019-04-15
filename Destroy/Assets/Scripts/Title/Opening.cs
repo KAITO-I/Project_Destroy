@@ -15,7 +15,7 @@ public class Opening : MonoBehaviour
     private Animation citizen;
     private Animation title;
 
-    [SerializeField] int flashMaxFrame    = 20;
+    [SerializeField] int flashMaxFrame = 20;
     [SerializeField] AudioClip titleBGM;
     private Image panel;
     private GameObject openingAnimation;
@@ -26,7 +26,7 @@ public class Opening : MonoBehaviour
     //==============================
     // inspector拡張
     //==============================
-    [CustomEditor(typeof(Opening))]
+    /*[CustomEditor(typeof(Opening))]
     public class OpeningEditor : Editor
     {
         public override void OnInspectorGUI()
@@ -38,16 +38,16 @@ public class Opening : MonoBehaviour
             EditorGUILayout.LabelField("オープニングアニメーション");
             opening.animationSpeed = EditorGUILayout.FloatField("速度", opening.animationSpeed);
             opening.waitFrame      = EditorGUILayout.IntField("待機間隔フレーム", opening.waitFrame);
-            opening.entrySE        = EditorGUILayout.ObjectField("SE", opening.entrySE, typeof(AudioClip), true) as AudioClip;
+            opening.entrySE        = EditorGUILayout.ObjectField("SE", opening.entrySE, typeof(AudioClip), false) as AudioClip;
 
             EditorGUILayout.Space();
 
             // メインUI表示アニメーション
             EditorGUILayout.LabelField("メインUI表示アニメーション");
-            opening.flashMaxFrame = EditorGUILayout.IntField("フラッシュ最大フレーム", opening.flashMaxFrame);
-            opening.titleBGM      = EditorGUILayout.ObjectField("タイトルBGM", opening.titleBGM, typeof(AudioClip), true) as AudioClip;
+            opening.flashMaxFrame   = EditorGUILayout.IntField("フラッシュ最大フレーム", opening.flashMaxFrame);
+            opening.titleBGM        = EditorGUILayout.ObjectField("タイトルBGM", opening.titleBGM, typeof(AudioClip), false) as AudioClip;
         }
-    }
+    }*/
 
     public void Awaked()
     {
