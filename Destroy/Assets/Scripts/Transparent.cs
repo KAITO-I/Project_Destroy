@@ -6,13 +6,12 @@ public class Transparent : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("in");
         MeshRenderer mesh = other.gameObject.GetComponent<MeshRenderer>();
-        if (mesh != null && other.gameObject.tag == "Building") mesh.enabled = false;
+        if (mesh != null && other.gameObject.layer == 10) other.gameObject.layer = 11;
     }
     private void OnTriggerExit(Collider other)
     {
         MeshRenderer mesh = other.gameObject.GetComponent<MeshRenderer>();
-        if (mesh != null && other.gameObject.tag == "Building") mesh.enabled = true;
+        if (mesh != null && other.gameObject.layer == 11) other.gameObject.layer = 10;
     }
 }

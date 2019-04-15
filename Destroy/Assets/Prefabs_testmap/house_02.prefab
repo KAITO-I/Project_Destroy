@@ -22,7 +22,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1187635885661492515}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: house_02
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -58,6 +58,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: c0a04691d99939846b2412443bb342ea, type: 3}
       propertyPath: m_TagString
       value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c0a04691d99939846b2412443bb342ea, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c0a04691d99939846b2412443bb342ea, type: 3}
       propertyPath: m_LocalPosition.x
