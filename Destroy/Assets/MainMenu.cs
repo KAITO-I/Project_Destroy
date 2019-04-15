@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    class Menu
+    {
+        public GameObject frame     { private set; get; }
+        public GameObject selecting { private set; get; }
+        public GameObject selected  { private set; get; }
+
+        Menu(GameObject frame, GameObject selecting, GameObject selected)
+        {
+            this.frame     = frame;
+            this.selecting = selecting;
+            this.selected  = selected;
+        }
+    }
+    private Menu start;
+    private Menu ranking;
+    private Menu quit;
+
+    public void Awaked()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Updated()
     {
-        
+
     }
 }

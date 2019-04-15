@@ -8,14 +8,14 @@ using UnityEditor;
 
 public class Opening : MonoBehaviour
 {
-    [SerializeField] float animationSpeed;
-    [SerializeField] int waitFrame;
+    [SerializeField] float animationSpeed = 1.0f;
+    [SerializeField] int waitFrame        = 20;
     [SerializeField] AudioClip entrySE;
     private Animation destroyer;
     private Animation citizen;
     private Animation title;
 
-    [SerializeField] int flashMaxFrame;
+    [SerializeField] int flashMaxFrame    = 20;
     [SerializeField] AudioClip titleBGM;
     private Image panel;
     private GameObject openingAnimation;
@@ -49,20 +49,23 @@ public class Opening : MonoBehaviour
         }
     }
 
-    private void Awake()
+    public void Awaked()
     {
         this.destroyer = GameObject.Find("Canvas/OpeningAnimation/Destroyer").GetComponent<Animation>();
         this.citizen   = GameObject.Find("Canvas/OpeningAnimation/Citizen").GetComponent<Animation>();
         this.title     = GameObject.Find("Canvas/OpeningAnimation/Title").GetComponent<Animation>();
 
         this.panel            = GameObject.Find("Canvas/Panel").GetComponent<Image>();
-        this.panel.color      = new Color(255.0f, 255.0f, 255.0f, 0f);
+        this.panel.color      = new Color(1.0f, 1.0f, 1.0f, 0f);
         (this.openingAnimation = GameObject.Find("Canvas/OpeningAnimation")).SetActive(true);
         (this.mainUI           = GameObject.Find("Canvas/Main")).SetActive(false);
 
         this.skip = false;
     }
 
+    //==============================
+    // Update
+    //==============================
     public void Updated()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -74,8 +77,11 @@ public class Opening : MonoBehaviour
     }
 
     //==============================
-    // オープニングアニメーション
+    // アニメーション
     //==============================
+    //------------------------------
+    // オープニング
+    //------------------------------
     public IEnumerator PlayOpeningAnimation()
     {
         // 破壊者の登場
@@ -110,18 +116,19 @@ public class Opening : MonoBehaviour
             StartCoroutine(DisplayMainUI());
     }
 
-    //==============================
+    //------------------------------
     // メインUI表示
-    //==============================
+    //------------------------------
     public IEnumerator DisplayMainUI()
     {
         GetComponent<TitleManager>().status = TitleStatus.None;
 
+        // 徐々に白
         float time = 0f;
         while (time <= Time.deltaTime * flashMaxFrame)
         {
             time += Time.deltaTime;
-            this.panel.color = new Color(255.0f, 255.0f, 255.0f, Mathf.Lerp(0.0f, 1.0f, time / (Time.deltaTime * flashMaxFrame)));
+            this.panel.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Lerp(0.0f, 1.0f, time / (Time.deltaTime * flashMaxFrame)));
             yield return null;
         }
 
@@ -129,10 +136,11 @@ public class Opening : MonoBehaviour
         this.openingAnimation.SetActive(false);
         this.mainUI.SetActive(true);
 
+        // 徐々に透明
         time = 0f;
         while (time <= Time.deltaTime * flashMaxFrame) {
             time += Time.deltaTime;
-            this.panel.color = new Color(255.0f, 255.0f, 255.0f, Mathf.Lerp(1.0f, 0.0f, time / (Time.deltaTime * flashMaxFrame)));
+            this.panel.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Lerp(1.0f, 0.0f, time / (Time.deltaTime * flashMaxFrame)));
             yield return null;
         }
 
