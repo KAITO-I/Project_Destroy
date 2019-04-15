@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     private static SceneController instance;
-
+    
     public static SceneController Instance
     {
         get
