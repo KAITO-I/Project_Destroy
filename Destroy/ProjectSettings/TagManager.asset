@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Building
+  - point
   - Enemy
   - Crusher
-  - point
-  - Building
   layers:
   - Default
   - TransparentFX
@@ -17,8 +17,6 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - Floor
   - 
   - 
   - 
@@ -41,6 +39,8 @@ TagManager:
   - 
   - 
   - 
+  - Pointer
+  - Enemy
   m_SortingLayers:
   - name: Default
     uniqueID: 0

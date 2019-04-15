@@ -7,7 +7,7 @@ public enum TitleStatus
 {
     None,
     Opening,
-    Title
+    MainMenu
 }
 
 public class TitleManager : MonoBehaviour
@@ -37,6 +37,11 @@ public class TitleManager : MonoBehaviour
             case TitleStatus.Opening:
                 this.opening.Updated();
                 break;
+
+            case TitleStatus.MainMenu:
+
+                break;
+
         }
     }
 }

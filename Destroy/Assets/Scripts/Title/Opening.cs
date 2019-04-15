@@ -144,7 +144,7 @@ public class Opening : MonoBehaviour
             yield return null;
         }
 
-        GetComponent<TitleManager>().status = TitleStatus.Title;
+        GetComponent<TitleManager>().status = TitleStatus.MainMenu;
     }
 }
 

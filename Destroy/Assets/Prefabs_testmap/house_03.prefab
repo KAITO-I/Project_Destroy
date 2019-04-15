@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Building
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ed7d1ffdfa88b92408ffec9342da581f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ed7d1ffdfa88b92408ffec9342da581f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.1

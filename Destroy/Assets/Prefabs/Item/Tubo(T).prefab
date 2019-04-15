@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7979984490186785275}
   - component: {fileID: 754987117555319790}
   - component: {fileID: 7376915960346638283}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tubo(T)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
