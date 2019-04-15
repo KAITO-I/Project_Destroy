@@ -14,12 +14,14 @@ public class TitleManager : MonoBehaviour
 {
     public TitleStatus status { private get; set; }
     private Opening opening;
+    private MainMenu menu;
 
     private void Awake()
     {
         Cursor.visible = false;
 
-        this.opening = GetComponent<Opening>();
+        (this.menu = GetComponent<MainMenu>()).Awaked();
+        (this.opening = GetComponent<Opening>()).Awaked();
     }
 
     private void Start()
