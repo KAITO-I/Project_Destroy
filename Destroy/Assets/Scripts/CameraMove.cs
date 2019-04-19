@@ -39,6 +39,16 @@ public class CameraMove : MonoBehaviour
         }
         yield return new WaitForSeconds(0.05f);
         Co.enabled = true;
+        //スポーン
+        CharaSpawn cp = GetComponent<CharaSpawn>();
+        cp.SetFlag(true);
+        int spv = cp.spawmPoint.Length;
+        cp.nowchara = 0;
+        for (int i = 0; i < 50; i++)
+        {
+            cp.Spawn(i % spv);
+            cp.nowchara++;
+        }
     }
     // Update is called once per frame
     void Update()

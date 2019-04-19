@@ -58,7 +58,7 @@ public class RankingGet : MonoBehaviour
     {
         for (int i = 0; i < rankingi.Length; i++)
         {
-            rankingText[i].text = (i + 1) + "位 ：" + (rankingi[i]) + "円";
+            rankingText[i].text =rankingi[i].ToString();
         }
     }
     public void Totitle()

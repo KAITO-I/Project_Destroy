@@ -96,10 +96,10 @@ public class Ranking : MonoBehaviour
     }
     void Display()
     {
-        ScoreText.text = "被害総額: " + myscore.ToString() + "円";
+        ScoreText.text = myscore.ToString();
         for (int i = 0; i < rankingi.Length; i++)
         {
-            rankingText[i].text = (i + 1) + "位 ：" + (rankingi[i]) + "円";
+            rankingText[i].text = rankingi[i].ToString();
         }
     }
     void ScoreSet()
