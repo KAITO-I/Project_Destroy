@@ -69,6 +69,8 @@ public class SceneController : MonoBehaviour
             yield return 0;
         }
 
+        SoundManager.Instance.StopBGM();
+
         //Loadingシーン
         SceneManager.LoadScene("Loading");
         yield return new WaitForSeconds(1f / 60f);

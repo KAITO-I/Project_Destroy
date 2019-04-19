@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Result.unity
     guid: 73ad62c7704abad4fb527195b44e0c53
+  - enabled: 1
+    path: Assets/Scenes/TarakoTitle.unity
+    guid: ddec01fad7bc5ae499dfb05df87afc6d
   m_configObjects: {}

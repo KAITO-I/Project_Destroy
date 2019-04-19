@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8886263337563027124}
   - component: {fileID: 8886263337565894292}
   - component: {fileID: 8886263337564795988}
-  - component: {fileID: 8886263337562860181}
+  - component: {fileID: 1845954639}
+  - component: {fileID: 1845954642}
   m_Layer: 0
   m_Name: tarako
   m_TagString: Untagged
@@ -78,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &8886263337562860181
+--- !u!95 &1845954639
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -97,6 +98,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1845954642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886263337562860180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 777f6314e22f12740a430a0105aa88dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8886263339269545459
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8886263339269545459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8886263337563027124}
@@ -191,6 +204,8 @@ MonoBehaviour:
   Flag2: 0
   Flag3: 1
   cor_Flag: 0
+  animator: {fileID: 1845954639}
+  tarako: {fileID: 1845954642}
 --- !u!195 &8886263339269545468
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -221,7 +236,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8886263339269545459}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3fd5cc78bc006464192d314f6530a200, type: 2}
   m_CullingMode: 0
@@ -265,4 +280,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  pos: {x: 0, y: 0, z: 0}
   points: []
