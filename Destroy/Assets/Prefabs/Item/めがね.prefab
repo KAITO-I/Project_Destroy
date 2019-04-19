@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 2740926034744049409}
   - component: {fileID: 2740926034747440929}
   - component: {fileID: 2740926034746342881}
-  m_Layer: 10
+  m_Layer: 31
   m_Name: Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!4 &2740926034744049409
 Transform:
@@ -88,12 +88,12 @@ GameObject:
   - component: {fileID: 2740926034744049411}
   - component: {fileID: 2740926034747440931}
   - component: {fileID: 2740926034746342883}
-  m_Layer: 10
+  m_Layer: 31
   m_Name: Glasses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!4 &2740926034744049411
 Transform:
@@ -167,12 +167,12 @@ GameObject:
   - component: {fileID: 6396632648296360383}
   - component: {fileID: 1594381307368786416}
   - component: {fileID: 892551690157537719}
-  m_Layer: 10
+  m_Layer: 31
   m_Name: "\u3081\u304C\u306D"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!4 &2740926034744049413
 Transform:

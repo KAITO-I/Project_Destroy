@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 8866367682291902024}
   - component: {fileID: 4381605197560548831}
   - component: {fileID: 6688173695077908602}
-  m_Layer: 10
+  m_Layer: 31
   m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!4 &6643953362454967380
 Transform:
@@ -88,7 +88,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 986f8fa01e7fef34ebfe99f9c0eb4e26, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 986f8fa01e7fef34ebfe99f9c0eb4e26, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 986f8fa01e7fef34ebfe99f9c0eb4e26, type: 3}
       propertyPath: m_LocalPosition.x

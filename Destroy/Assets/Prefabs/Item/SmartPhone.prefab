@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 6956512828104870800}
   - component: {fileID: 8338669583769411033}
   - component: {fileID: 3809836134362158791}
-  m_Layer: 10
+  m_Layer: 31
   m_Name: SmartPhone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!4 &4457176456318044233
 Transform:
@@ -88,7 +88,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: a1a3b7cd4fe1c5a45aa1bbb69221f08e, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a1a3b7cd4fe1c5a45aa1bbb69221f08e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a1a3b7cd4fe1c5a45aa1bbb69221f08e, type: 3}
       propertyPath: m_LocalPosition.x

@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1686939856190605157}
   - component: {fileID: 2258266522944684594}
   - component: {fileID: 141822502181182323}
-  m_Layer: 10
+  m_Layer: 31
   m_Name: Cola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!4 &4066285851527734302
 Transform:
@@ -86,12 +86,12 @@ GameObject:
   - component: {fileID: 4066285851894515922}
   - component: {fileID: 4066285851895318770}
   - component: {fileID: 4066285851896416818}
-  m_Layer: 10
+  m_Layer: 31
   m_Name: cola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!4 &4066285851894515922
 Transform:

@@ -14,12 +14,12 @@ GameObject:
   - component: {fileID: 7979984490186785275}
   - component: {fileID: 754987117555319790}
   - component: {fileID: 7376915960346638283}
-  m_Layer: 10
+  m_Layer: 31
   m_Name: Tubo(T)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!4 &5798747144727400656
 Transform:
