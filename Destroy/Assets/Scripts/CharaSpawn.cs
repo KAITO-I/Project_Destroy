@@ -9,12 +9,16 @@ public class CharaSpawn : MonoBehaviour
     ItemSet Item;
     float spawnTime;
     public float spawnSpan = 30f;
-    public int Spawnnum = 5;
+    public int SpawnMax = 5;
+    public int SpawnMin = 5;
+    public int charaMax = 300;
+    public int nowchara;
     // Start is called before the first frame update
     void Start()
     {
         spawnTime = spawnSpan;
         Item = GetComponent<ItemSet>();
+        nowchara = 0;
         //Item.SetItemData();
     }
     void Update()
@@ -23,7 +27,7 @@ public class CharaSpawn : MonoBehaviour
         if(spawnTime <= 0f)
         {
             spawnTime = spawnSpan;
-            for (int i = 0;i < Random.Range(20,Spawnnum+1); i++)
+            for (int i = 0;i < Random.Range(SpawnMin, SpawnMax+1); i++)
             {
                 Spawn();
             }
@@ -31,6 +35,12 @@ public class CharaSpawn : MonoBehaviour
     }
     public void Spawn()
     {
+        if (nowchara >= charaMax) {
+            Debug.Log("Max");
+            return;
+        }
+        Debug.Log(nowchara);
+        nowchara++;
         ItemData item = ItemCalc();
         if (item == null) Debug.Log("null");
         int pos = Random.Range(0, spawmPoint.Length);
