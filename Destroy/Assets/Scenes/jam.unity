@@ -3758,7 +3758,10 @@ MonoBehaviour:
   - {fileID: 5455392162274396963, guid: 5735a270a30fe7940b461593186a5003, type: 3}
   - {fileID: 2029088420978293737, guid: 3f01852a3f9f7fb4ab31cf3bbee5f304, type: 3}
   spawnSpan: 10
-  Spawnnum: 60
+  SpawnMax: 5
+  SpawnMin: 5
+  charaMax: 300
+  nowchara: 0
 --- !u!114 &175270623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6855,7 +6858,7 @@ GameObject:
   m_Component:
   - component: {fileID: 333031642}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SpownPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29630,7 +29633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1541909728}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: SpownPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30204,7 +30207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1567124900}
   m_Layer: 0
-  m_Name: GameObject (3)
+  m_Name: SpownPoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39176,7 +39179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2058715157}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: SpownPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
