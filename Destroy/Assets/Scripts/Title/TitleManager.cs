@@ -15,9 +15,9 @@ public class TitleManager : MonoBehaviour
     [SerializeField] bool tarakoEdition;
 
     public TitleStatus status { private get; set; }
-    private Opening     opening;
-    private MainMenu    menu;
-    private HideCommand command;
+    private Opening       opening;
+    private MainMenu      menu;
+    private TarakoCommand command;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class TitleManager : MonoBehaviour
 
         (this.menu = GetComponent<MainMenu>()).Awaked();
         (this.opening = GetComponent<Opening>()).Awaked();
-        if (!this.tarakoEdition) (this.command = GetComponent<HideCommand>()).Awaked();
+        if (!this.tarakoEdition) (this.command = GetComponent<TarakoCommand>()).Awaked();
     }
 
     private void Start()
