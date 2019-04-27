@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 8886263339269545464}
   - component: {fileID: 8886263339269545471}
   - component: {fileID: 8886263339269545348}
+  - component: {fileID: 2798452563976458581}
   m_Layer: 0
   m_Name: Tarako
   m_TagString: Enemy
@@ -282,3 +283,18 @@ MonoBehaviour:
   target: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
   points: []
+--- !u!114 &2798452563976458581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886263339269545459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6f7dbcde99bcb4bbe7dd065a3b1458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  haveItem: {fileID: 0}
+  myItem: {fileID: 0}
+  pos: {fileID: 0}
