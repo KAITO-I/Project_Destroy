@@ -5,6 +5,8 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
     public GameObject MenuWindow;
+    public GameObject MenuMessage;
+
     void Start()
     {
         if(MenuWindow.activeInHierarchy == true)MenuWindow.SetActive(false);
@@ -18,12 +20,14 @@ public class Menu : MonoBehaviour
         {
             Time.timeScale = 0;
             MenuWindow.SetActive(true);
+            MenuMessage.SetActive(false);
         }
         //もう一度押すと解除
         else if (Input.GetButtonDown("Cancel") && MenuWindow.activeInHierarchy == true)
         {
             Time.timeScale = 1;
             MenuWindow.SetActive(false);
+            MenuMessage.SetActive(true);
         }
     }
 }
