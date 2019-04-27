@@ -6,6 +6,7 @@ public class CharaSpawn : MonoBehaviour
 {
     public GameObject[] spawmPoint;
     public GameObject[] charas;
+    public GameObject charaP;
     ItemSet Item;
     float spawnTime;
     public float spawnSpan = 30f;
@@ -49,13 +50,18 @@ public class CharaSpawn : MonoBehaviour
         int pos = Random.Range(0, spawmPoint.Length);
         GameObject chara =  Instantiate(charas[Random.Range(0, charas.Length)], spawmPoint[pos].transform);
         chara.GetComponent<CharaData>().SetItem(item);
+        chara.transform.parent = null;
+        //chara.transform.parent = charaP.transform;
     }
     public void Spawn(int num)
     {
+
         ItemData item = ItemCalc();
         if (item == null) Debug.Log("null");
         GameObject chara = Instantiate(charas[Random.Range(0, charas.Length)], spawmPoint[num].transform);
         chara.GetComponent<CharaData>().SetItem(item);
+        chara.transform.parent = null;
+        //chara.transform.parent = charaP.transform;
     }
     public void SetFlag(bool sp)
     {

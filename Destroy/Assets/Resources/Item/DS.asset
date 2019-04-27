@@ -17,3 +17,4 @@ MonoBehaviour:
   dropPar: 5
   Price: 15000
   obj: {fileID: 1796908996081462570, guid: bfa1503e989112d46ad3d75a4195b573, type: 3}
+  audio: {fileID: 8300000, guid: 4cf650aee3b85f541b52d9d54af900dd, type: 3}
