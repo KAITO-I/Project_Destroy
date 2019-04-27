@@ -31,18 +31,10 @@ public class ItemFall : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (grab)
-        {
-            Debug.Log("Break");
-            GameObject go =  Instantiate(Resources.Load<GameObject>("CFX_Hit_C White"),gameObject.transform);
-            go.transform.parent = null;
-            Sp.PlaySE(ac);
-            Destroy(gameObject);
-        }
     }
     IEnumerator Break(GameObject g)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.3f);
         Debug.Log("Break");
         GameObject go = Instantiate(Resources.Load<GameObject>("CFX_Hit_C White"), gameObject.transform);
         go.transform.parent = null;
