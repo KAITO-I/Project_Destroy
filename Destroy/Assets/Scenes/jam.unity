@@ -3714,7 +3714,6 @@ GameObject:
   - component: {fileID: 175270617}
   - component: {fileID: 175270621}
   - component: {fileID: 175270622}
-  - component: {fileID: 175270623}
   - component: {fileID: 175270624}
   m_Layer: 0
   m_Name: MainGameManager
@@ -3818,35 +3817,6 @@ MonoBehaviour:
   SpawnMin: 5
   charaMax: 300
   nowchara: 0
---- !u!114 &175270623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175270616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 512
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.033333335
-  m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 0}
 --- !u!114 &175270624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3896,7 +3866,7 @@ PrefabInstance:
     - target: {fileID: 7348351998633797521, guid: 2d0c6d4952e1f1f4e89e3665a6c65829,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.2
+      value: -8.85
       objectReference: {fileID: 0}
     - target: {fileID: 7348351998633797521, guid: 2d0c6d4952e1f1f4e89e3665a6c65829,
         type: 3}
@@ -16115,7 +16085,7 @@ PrefabInstance:
     - target: {fileID: 7348351998633797521, guid: 2d0c6d4952e1f1f4e89e3665a6c65829,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.3
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 7348351998633797521, guid: 2d0c6d4952e1f1f4e89e3665a6c65829,
         type: 3}
@@ -24206,7 +24176,7 @@ PrefabInstance:
     - target: {fileID: 7348351998633797521, guid: 2d0c6d4952e1f1f4e89e3665a6c65829,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.5
+      value: -11.25
       objectReference: {fileID: 0}
     - target: {fileID: 7348351998633797521, guid: 2d0c6d4952e1f1f4e89e3665a6c65829,
         type: 3}
@@ -32076,7 +32046,7 @@ PrefabInstance:
     - target: {fileID: 7348351998633797521, guid: 2d0c6d4952e1f1f4e89e3665a6c65829,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.6
+      value: -4.15
       objectReference: {fileID: 0}
     - target: {fileID: 7348351998633797521, guid: 2d0c6d4952e1f1f4e89e3665a6c65829,
         type: 3}
@@ -41620,7 +41590,7 @@ PrefabInstance:
     - target: {fileID: 7348351998633797521, guid: 2d0c6d4952e1f1f4e89e3665a6c65829,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.9
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 7348351998633797521, guid: 2d0c6d4952e1f1f4e89e3665a6c65829,
         type: 3}
