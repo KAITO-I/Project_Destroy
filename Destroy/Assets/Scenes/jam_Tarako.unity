@@ -3651,7 +3651,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.7924528, g: 0.4590093, b: 0.4448202, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -3889,8 +3889,7 @@ MonoBehaviour:
   - {fileID: 2058715156}
   - {fileID: 1567124899}
   charas:
-  - {fileID: 5455392162274396963, guid: 5735a270a30fe7940b461593186a5003, type: 3}
-  - {fileID: 2029088420978293737, guid: 3f01852a3f9f7fb4ab31cf3bbee5f304, type: 3}
+  - {fileID: 8886263339269545459, guid: 5f0c0ff73b088944b8982dba7d631f77, type: 3}
   charaP: {fileID: 1727366723}
   spawnSpan: 10
   SpawnMax: 5
