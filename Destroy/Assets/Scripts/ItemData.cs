@@ -9,4 +9,5 @@ public class ItemData : ScriptableObject {
     public int dropPar;
     public int Price;
     public GameObject obj;
+    public AudioClip audio;
 }
