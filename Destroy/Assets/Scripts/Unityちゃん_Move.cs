@@ -182,7 +182,7 @@ public class Unityちゃん_Move: MonoBehaviour
 
     void Motion_End()
     {
-        Restart();
+        Invoke("Restart",0.2f);
     }
 
     public void OnTriggerEnter(Collider other)
