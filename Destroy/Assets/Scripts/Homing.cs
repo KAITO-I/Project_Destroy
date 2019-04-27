@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
@@ -14,13 +15,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             Nomal,
             Chase
         };
-
+        
         public EnemyState state;
         AICharacterControl ai;
         CharaData data;
         public GameObject target;
         public NavMeshAgent agent;
-         public Material Red, Blue;
+        public Material Red, Blue;
+        public Image image,item;
         private new Renderer renderer = null;
 
         public float Speed;
@@ -30,6 +32,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         void Start()
         {
+            item.enabled = true;
+            image.enabled = false;
             data = GetComponent<CharaData>();
             target = GameObject.FindWithTag("Player")
 ;           renderer = GetComponentInChildren<Renderer>();
@@ -43,6 +47,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 animator.SetBool("Have", true);
             }
+            
         }
 
         void Update()
@@ -54,7 +59,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 if (Input.GetKeyDown(KeyCode.Space) && state == EnemyState.Nomal)
                 {
-                    Chase();
+
+                    image.enabled = true;
+                    Chase();//追跡開始
                 }
             }
             if(Flag == true && Flag3 == true)
@@ -96,6 +103,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         void Chase_Start()
         {
+            item.enabled = false;
+            image.enabled = false;
             Flag2 = true;
             Flag = false;
             agent.speed = Speed;
