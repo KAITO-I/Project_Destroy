@@ -8,6 +8,8 @@ TagManager:
   - point
   - Enemy
   - Crusher
+  - FxTemporaire
+  - None
   layers:
   - Default
   - TransparentFX
