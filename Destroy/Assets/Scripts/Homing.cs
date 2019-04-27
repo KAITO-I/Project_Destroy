@@ -17,6 +17,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public EnemyState state;
         AICharacterControl ai;
+        CharaData data;
         public GameObject target;
         public NavMeshAgent agent;
          public Material Red, Blue;
@@ -29,14 +30,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         void Start()
         {
+            data = GetComponent<CharaData>();
             target = GameObject.FindWithTag("Player")
-;            renderer = GetComponentInChildren<Renderer>();
+;           renderer = GetComponentInChildren<Renderer>();
             target = GameObject.FindWithTag("Player");
             agent = GetComponent<NavMeshAgent>();
             agent.speed = 1;
             animator = GetComponent<Animator>();
             SetState("Nomal");
-            ai = GetComponent<AICharacterControl>();
+            ai = GetComponent<AICharacterControl>();   
+            if(data.myItem.name != "None")
+            {
+                animator.SetBool("Have", true);
+            }
         }
 
         void Update()
@@ -65,7 +71,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             SetState("Chase");
             agent.speed = 0;
-            animator.SetBool("Flag", true);
+            animator.SetTrigger("Flag");
             SetState("Chase");
             agent.SetDestination(this.transform.position);
         }
