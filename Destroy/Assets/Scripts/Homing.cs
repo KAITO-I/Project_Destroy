@@ -39,7 +39,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             animator = GetComponent<Animator>();
             SetState("Nomal");
             ai = GetComponent<AICharacterControl>();   
-            if(data.myItem.name != "None")
+            if(data.myItem.name != "None(Clone)")
             {
                 animator.SetBool("Have", true);
             }
