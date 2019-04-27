@@ -28,6 +28,7 @@ public class ScoreManager : MonoBehaviour
         score += id.Price;
         GameObject mi = cd.myItem;
         cd.myItem = null;
+        if (id.audio == null) return;
         mi.GetComponent<ItemFall>().GrabtyChange(id.audio);
     }
 }

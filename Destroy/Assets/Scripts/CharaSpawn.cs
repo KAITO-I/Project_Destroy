@@ -51,7 +51,7 @@ public class CharaSpawn : MonoBehaviour
         GameObject chara =  Instantiate(charas[Random.Range(0, charas.Length)], spawmPoint[pos].transform);
         chara.GetComponent<CharaData>().SetItem(item);
         chara.transform.parent = null;
-        //chara.transform.parent = charaP.transform;
+        chara.transform.parent = charaP.transform;
     }
     public void Spawn(int num)
     {
@@ -61,7 +61,7 @@ public class CharaSpawn : MonoBehaviour
         GameObject chara = Instantiate(charas[Random.Range(0, charas.Length)], spawmPoint[num].transform);
         chara.GetComponent<CharaData>().SetItem(item);
         chara.transform.parent = null;
-        //chara.transform.parent = charaP.transform;
+        chara.transform.parent = charaP.transform;
     }
     public void SetFlag(bool sp)
     {
