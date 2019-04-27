@@ -21,6 +21,6 @@ public class CharaData : MonoBehaviour
     public void SetItem(ItemData Item)
     {
         haveItem = Item;
-        if (Item.obj != null) myItem = Instantiate(Item.obj, pos.transform);
+        if (Item.obj != null && pos != null) myItem = Instantiate(Item.obj, pos.transform);
     }
 }
