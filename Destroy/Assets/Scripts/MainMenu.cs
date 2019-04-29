@@ -140,6 +140,8 @@ public class MainMenu : MonoBehaviour
                 this.start.selected.SetActive(true);
                 SoundManager.Instance.PlaySE(this.selectedStartSE);
                 yield return new WaitForSeconds(0.5f);
+                if (GetComponent<TitleManager>().tarakoEdition) MainGameManaer.ModeChange(Mode.Tarako);
+                else MainGameManaer.ModeChange(Mode.Nomal);
                 SceneController.Instance.Load(this.gamescene);
                 break;
 

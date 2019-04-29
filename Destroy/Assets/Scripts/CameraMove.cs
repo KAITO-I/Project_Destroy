@@ -18,6 +18,7 @@ public class CameraMove : MonoBehaviour
     }
     public  IEnumerator StartCamera()
     {
+        Debug.Log(MainGameManaer.GetMode());
         Camera_offset Co = camera.GetComponent<Camera_offset>();
         Co.enabled = false;
         camdefpos = camera.transform.position;
@@ -44,8 +45,9 @@ public class CameraMove : MonoBehaviour
         cp.SetFlag(true);
         int spv = cp.firstSpawnP.Length;
         cp.nowchara = 0;
-        if(MainGameManaer.GetMode() == Mode.Nomal)
+        if(MainGameManaer.GetMode() != Mode.Tarako)
         {
+            Debug.Log("spawn");
             for (int i = 0; i < 50; i++)
             {
                 cp.Spawn(i % spv);

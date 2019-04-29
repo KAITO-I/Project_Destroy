@@ -46,7 +46,8 @@ public class MainGameManaer : MonoBehaviour
     {
         gameoverText.SetActive(true);
         yield return new WaitForSeconds(5f);
-        SceneController.Instance.Load("Result");
+        if(NowMode == Mode.Nomal)SceneController.Instance.Load("Result");
+        else SceneController.Instance.Load("Title");
     }
     public static void ModeChange(Mode m)
     {

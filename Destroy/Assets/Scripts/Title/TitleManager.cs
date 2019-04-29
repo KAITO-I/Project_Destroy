@@ -12,7 +12,7 @@ public enum TitleStatus
 
 public class TitleManager : MonoBehaviour
 {
-    [SerializeField] bool tarakoEdition;
+    public bool tarakoEdition;
 
     public TitleStatus status { private get; set; }
     private Opening       opening;

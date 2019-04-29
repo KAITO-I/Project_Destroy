@@ -2610,7 +2610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b89ef26ec089f4c89d6fb16c73900e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tarakoEdition: 0
+  tarakoEdition: 1
 --- !u!82 &990559980
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2753,6 +2753,8 @@ MonoBehaviour:
   selectingSE: {fileID: 8300000, guid: 82ee4f066b2f5cc4a8bd57fe4614dae3, type: 3}
   selectedStartSE: {fileID: 8300000, guid: 0bd003f1ee0a2734fa03e1c2b252fbd8, type: 3}
   selectedSE: {fileID: 8300000, guid: e5c831ee1492c7445befb2a9f7f86682, type: 3}
+  gamescene: jam_tarako
+  rankingscene: Ranking
 --- !u!114 &990559984
 MonoBehaviour:
   m_ObjectHideFlags: 0

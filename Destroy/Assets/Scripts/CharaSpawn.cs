@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharaSpawn : MonoBehaviour
 {
-    public GameObject[] spawmPoint;
+    public GameObject[] spawnPoint;
     public GameObject[] firstSpawnP;
     public GameObject[] charas;
     public GameObject charaP;
@@ -37,6 +37,15 @@ public class CharaSpawn : MonoBehaviour
                 nowchara++;
             }
         }
+        else
+        {
+            spawnTime = spawnSpan;
+            for (int i = 0; i < Random.Range(SpawnMin, SpawnMax + 1); i++)
+            {
+                //SpawnTarako();
+                //nowchara++;
+            }
+        }
     }
     public void Spawn()
     {
@@ -48,8 +57,8 @@ public class CharaSpawn : MonoBehaviour
         Debug.Log(nowchara);
         ItemData item = ItemCalc();
         if (item == null) Debug.Log("null");
-        int pos = Random.Range(0, spawmPoint.Length);
-        GameObject chara =  Instantiate(charas[Random.Range(0, charas.Length)], spawmPoint[pos].transform);
+        int pos = Random.Range(0, spawnPoint.Length);
+        GameObject chara =  Instantiate(charas[Random.Range(0, charas.Length)], spawnPoint[pos].transform);
         chara.GetComponent<CharaData>().SetItem(item);
         chara.transform.parent = null;
         chara.transform.parent = charaP.transform;
@@ -65,8 +74,9 @@ public class CharaSpawn : MonoBehaviour
     }
     public void SpawnTarako()
     {
-        int pos = Random.Range(0, spawmPoint.Length);
-        GameObject chara = Instantiate(charas[0], spawmPoint[pos].transform);
+        int pos = Random.Range(0, spawnPoint.Length);
+        GameObject chara = Instantiate(charas[0], spawnPoint[pos].transform);
+
         chara.transform.parent = null;
         chara.transform.parent = charaP.transform;
     }

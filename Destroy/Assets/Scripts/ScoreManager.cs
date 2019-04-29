@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
         if (MainGameManaer.GetMode() != Mode.Nomal)
         {
             time += Time.deltaTime;
-            scoreTxt.text = time.ToString();
+            scoreTxt.text = time.ToString("f2");
         } 
         else scoreTxt.text = score.ToString() + "円";
     }

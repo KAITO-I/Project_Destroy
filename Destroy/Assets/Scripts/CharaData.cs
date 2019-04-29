@@ -22,6 +22,7 @@ public class CharaData : MonoBehaviour
     }
     public void SetItem(ItemData Item)
     {
+        if (MainGameManaer.GetMode() == Mode.Tarako || Item == null) return;
         haveItem = Item;
         if (Item.obj != null && pos != null) myItem = Instantiate(Item.obj, pos.transform);
         GetComponent<Homing>().itemS = Item.Item;
