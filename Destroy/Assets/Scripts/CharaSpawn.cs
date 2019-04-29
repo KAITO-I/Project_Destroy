@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharaSpawn : MonoBehaviour
 {
     public GameObject[] spawmPoint;
-    [SerializeField] GameObject[] firstSpawnP;
+    public GameObject[] firstSpawnP;
     public GameObject[] charas;
     public GameObject charaP;
     ItemSet Item;
@@ -28,7 +28,7 @@ public class CharaSpawn : MonoBehaviour
     {
         if (!canSpawn) return;
         spawnTime -= Time.deltaTime;
-        if(spawnTime <= 0f)
+        if(spawnTime <= 0f && MainGameManaer.GetMode() == Mode.Nomal)
         {
             spawnTime = spawnSpan;
             for (int i = 0;i < Random.Range(SpawnMin, SpawnMax+1); i++)
@@ -60,6 +60,19 @@ public class CharaSpawn : MonoBehaviour
         if (item == null) Debug.Log("null");
         GameObject chara = Instantiate(charas[Random.Range(0, charas.Length)], firstSpawnP[num].transform);
         chara.GetComponent<CharaData>().SetItem(item);
+        chara.transform.parent = null;
+        chara.transform.parent = charaP.transform;
+    }
+    public void SpawnTarako()
+    {
+        int pos = Random.Range(0, spawmPoint.Length);
+        GameObject chara = Instantiate(charas[0], spawmPoint[pos].transform);
+        chara.transform.parent = null;
+        chara.transform.parent = charaP.transform;
+    }
+    public void SpawnTarako(int num)
+    {
+        GameObject chara = Instantiate(charas[0], firstSpawnP[num].transform);
         chara.transform.parent = null;
         chara.transform.parent = charaP.transform;
     }

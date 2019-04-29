@@ -3888,6 +3888,7 @@ MonoBehaviour:
   - {fileID: 1541909727}
   - {fileID: 2058715156}
   - {fileID: 1567124899}
+  firstSpawnP: []
   charas:
   - {fileID: 45604061053599888, guid: f98ce778c1fc43d42a695c015692dc49, type: 3}
   - {fileID: 3582598833657379177, guid: 1f99e603c67b41d4aa3aa73579e02eed, type: 3}
@@ -34429,7 +34430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727366723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.731812, y: -249.27353, z: 11.290184}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40733,7 +40734,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055132791}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 72.8, z: 0}
+  m_LocalPosition: {x: 0, y: 73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1533350200}

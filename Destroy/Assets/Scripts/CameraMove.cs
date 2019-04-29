@@ -42,12 +42,19 @@ public class CameraMove : MonoBehaviour
         //スポーン
         CharaSpawn cp = GetComponent<CharaSpawn>();
         cp.SetFlag(true);
-        int spv = cp.spawmPoint.Length;
+        int spv = cp.firstSpawnP.Length;
         cp.nowchara = 0;
-        for (int i = 0; i < 50; i++)
+        if(MainGameManaer.GetMode() == Mode.Nomal)
         {
-            cp.Spawn(i % spv);
-            cp.nowchara++;
+            for (int i = 0; i < 50; i++)
+            {
+                cp.Spawn(i % spv);
+                cp.nowchara++;
+            }
+        }
+        else
+        {
+            cp.SpawnTarako(0);
         }
     }
     // Update is called once per frame
