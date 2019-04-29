@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
     [RequireComponent(typeof(ThirdPersonCharacter))]
-   // [RequireComponent(typeof(NavMeshAgent))]
+    // [RequireComponent(typeof(NavMeshAgent))]
     public class Homing : MonoBehaviour
     {
         public enum EnemyState
@@ -15,44 +15,46 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             Nomal,
             Chase
         };
-        
+
         public EnemyState state;
         AICharacterControl ai;
         CharaData data;
         public GameObject target;
         public NavMeshAgent agent;
         public Material Red, Blue;
-        public Image image,item;
+        public Image image, item;
+        public Sprite itemS, bikkuri;
         private new Renderer renderer = null;
 
         public float Speed;
         public bool Flag = false, Flag2 = false, Flag3 = true;
         Animator animator;
-        
+
 
         void Start()
         {
             item.enabled = true;
-            image.enabled = false;
+            image.enabled = true;
+            image.sprite = itemS;
             data = GetComponent<CharaData>();
-            target = GameObject.FindWithTag("Player")
-;           renderer = GetComponentInChildren<Renderer>();
+            target = GameObject.FindWithTag("Player");
+            renderer = GetComponentInChildren<Renderer>();
             target = GameObject.FindWithTag("Player");
             agent = GetComponent<NavMeshAgent>();
             agent.speed = 1;
             animator = GetComponent<Animator>();
             SetState("Nomal");
-            ai = GetComponent<AICharacterControl>();   
-            if(data.myItem.tag != "None")
+            ai = GetComponent<AICharacterControl>();
+            if (data.myItem.tag != "None")
             {
                 animator.SetBool("Have", true);
             }
-            
+
         }
 
         void Update()
         {
-          
+
             //if (state == EnemyState.Nomal) renderer.material = Blue;
 
             if (Flag == true && Flag2 == false)
@@ -60,11 +62,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 if (Input.GetKeyDown(KeyCode.Space) && state == EnemyState.Nomal)
                 {
 
-                    image.enabled = true;
+                    image.sprite = bikkuri;
                     Chase();//追跡開始
                 }
             }
-            if(Flag == true && Flag3 == true)
+            if (Flag == true && Flag3 == true)
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
@@ -124,9 +126,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         public void OnTriggerExit(Collider other)
         {
-            
-                Flag = false;
-           
+
+            Flag = false;
+
         }
     }
 }

@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class CharaData : MonoBehaviour
 {
     public ItemData haveItem;
     public GameObject myItem;
     public GameObject pos;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +24,6 @@ public class CharaData : MonoBehaviour
     {
         haveItem = Item;
         if (Item.obj != null && pos != null) myItem = Instantiate(Item.obj, pos.transform);
+        GetComponent<Homing>().itemS = Item.Item;
     }
 }
