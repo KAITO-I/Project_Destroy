@@ -58,7 +58,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     Flag3 = false;
-                    GameObject.Find("MainGameManager").GetComponent<ScoreManager>().Scorecalc(gameObject, gameObject.GetComponent<CharaData>().haveItem);
+                    //GameObject.Find("MainGameManager").GetComponent<ScoreManager>().Scorecalc(gameObject, gameObject.GetComponent<CharaData>().haveItem);
                 }
             }
             Get();

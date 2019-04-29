@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharaSpawn : MonoBehaviour
 {
     public GameObject[] spawmPoint;
+    [SerializeField] GameObject[] firstSpawnP;
     public GameObject[] charas;
     public GameObject charaP;
     ItemSet Item;
@@ -55,10 +56,9 @@ public class CharaSpawn : MonoBehaviour
     }
     public void Spawn(int num)
     {
-
         ItemData item = ItemCalc();
         if (item == null) Debug.Log("null");
-        GameObject chara = Instantiate(charas[Random.Range(0, charas.Length)], spawmPoint[num].transform);
+        GameObject chara = Instantiate(charas[Random.Range(0, charas.Length)], firstSpawnP[num].transform);
         chara.GetComponent<CharaData>().SetItem(item);
         chara.transform.parent = null;
         chara.transform.parent = charaP.transform;

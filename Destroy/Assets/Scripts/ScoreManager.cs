@@ -24,6 +24,7 @@ public class ScoreManager : MonoBehaviour
     }
     public void Scorecalc(GameObject obj,ItemData id)
     {
+        if (MainGameManaer.GetMode() == Mode.Tarako) return;
         CharaData cd = obj.GetComponent<CharaData>();
         score += id.Price;
         GameObject mi = cd.myItem;

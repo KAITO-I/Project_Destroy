@@ -10,4 +10,5 @@ public class ItemData : ScriptableObject {
     public int Price;
     public GameObject obj;
     public AudioClip audio;
+    public Sprite Item;
 }
