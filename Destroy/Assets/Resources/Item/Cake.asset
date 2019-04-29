@@ -18,3 +18,4 @@ MonoBehaviour:
   Price: 3000
   obj: {fileID: 4256920423299831481, guid: 3ad9f9dbc7b66b54d96f9fd5412fec53, type: 3}
   audio: {fileID: 8300000, guid: 9a4279084270c9d4da3a95f5a89dea59, type: 3}
+  Item: {fileID: 21300000, guid: 640158a84dc655f46b885de485ba1fdd, type: 3}
