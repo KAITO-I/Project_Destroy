@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum Mode
+{
+    Nomal,
+    Tarako
+}
 public class MainGameManaer : MonoBehaviour
 {
     CameraMove cm;
     [SerializeField]
     Animator startMsgAnim;
-
+    static Mode NowMode;
     [SerializeField] GameObject gameoverText;
     private void Awake()
     {
@@ -42,5 +47,13 @@ public class MainGameManaer : MonoBehaviour
         gameoverText.SetActive(true);
         yield return new WaitForSeconds(5f);
         SceneController.Instance.Load("Result");
+    }
+    public static void ModeChange(Mode m)
+    {
+        NowMode = m;
+    }
+    public static Mode GetMode()
+    {
+        return NowMode;
     }
 }
