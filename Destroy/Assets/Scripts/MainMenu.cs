@@ -33,6 +33,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] AudioClip selectedStartSE;
     [SerializeField] AudioClip selectedSE;
 
+    [SerializeField] string gamescene;
+    [SerializeField] string rankingscene;
+
     //==============================
     // inspector拡張
     //==============================
@@ -89,7 +92,8 @@ public class MainMenu : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                
+                GetComponent<TitleManager>().status = TitleStatus.None;
+                StartCoroutine(SelectButton());
             }
         }
     }
@@ -123,6 +127,41 @@ public class MainMenu : MonoBehaviour
                 this.ranking.selecting.SetActive(false);
                 this.quit.parent.transform.localScale = this.enableSelect;
                 this.quit.selecting.SetActive(true);
+                break;
+        }
+    }
+
+    private IEnumerator SelectButton()
+    {
+        switch (this.selectingNum)
+        {
+            case 0:
+                this.start.selecting.SetActive(false);
+                this.start.selected.SetActive(true);
+                SoundManager.Instance.PlaySE(this.selectedStartSE);
+                yield return new WaitForSeconds(0.5f);
+                SceneController.Instance.Load(this.gamescene);
+                break;
+
+            case 1:
+                this.ranking.selecting.SetActive(false);
+                this.start.selected.SetActive(true);
+                SoundManager.Instance.PlaySE(this.selectedSE);
+                yield return new WaitForSeconds(0.5f);
+                SceneController.Instance.Load(this.rankingscene);
+                break;
+
+            case 2:
+                this.quit.selecting.SetActive(false);
+                this.quit.selected.SetActive(true);
+                SoundManager.Instance.PlaySE(this.selectedSE);
+                yield return new WaitForSeconds(0.5f);
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#endif
+#if UNITY_STANDALONE
+                UnityEngine.Application.Quit();
+#endif
                 break;
         }
     }
