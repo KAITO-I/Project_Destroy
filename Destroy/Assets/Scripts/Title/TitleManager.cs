@@ -46,7 +46,6 @@ public class TitleManager : MonoBehaviour
                 this.menu.Updated();
                 if (!this.tarakoEdition) this.command.Updated();
                 break;
-
         }
     }
 }

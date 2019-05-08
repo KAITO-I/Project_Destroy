@@ -81,8 +81,7 @@ public class SceneController : MonoBehaviour
         //呼び出し
         AsyncOperation async = SceneManager.LoadSceneAsync(scene);
         async.allowSceneActivation = false;
-        while (async.progress < 0.9f) yield return new WaitForEndOfFrame();
-        yield return new WaitForSeconds(2f);
+        while (async.progress < 0.9f) yield return null;
 
         //暗転
         this.fadeAlpha = 1f;

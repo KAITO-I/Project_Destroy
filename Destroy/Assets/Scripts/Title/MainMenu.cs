@@ -36,23 +36,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] string gamescene;
     [SerializeField] string rankingscene;
 
-    //==============================
-    // inspector拡張
-    //==============================
-    /*[CustomEditor(typeof(MainMenu))]
-    public class MainMenuEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            MainMenu menu = target as MainMenu;
-
-            //===== カスタマイズ =====
-            menu.selectingSE     = EditorGUILayout.ObjectField("セレクトSE", menu.selectingSE, typeof(AudioClip)) as AudioClip;
-            menu.selectedStartSE = EditorGUILayout.ObjectField("スタート決定SE", menu.selectedStartSE, typeof(AudioClip)) as AudioClip;
-            menu.selectedSE      = EditorGUILayout.ObjectField("決定SE", menu.selectedSE, typeof(AudioClip)) as AudioClip;
-        }
-    }*/
-
     public void Awaked()
     {
         (this.start   = new Menu(GameObject.Find("Canvas/Main/Menu/Start"))).selected.SetActive(false);
@@ -147,7 +130,7 @@ public class MainMenu : MonoBehaviour
 
             case 1:
                 this.ranking.selecting.SetActive(false);
-                this.start.selected.SetActive(true);
+                this.ranking.selected.SetActive(true);
                 SoundManager.Instance.PlaySE(this.selectedSE);
                 yield return new WaitForSeconds(0.5f);
                 SceneController.Instance.Load(this.rankingscene);
