@@ -8,14 +8,13 @@ using UnityEditor;
 
 public class Opening : MonoBehaviour
 {
-    [SerializeField] float animationSpeed = 1.0f;
-    [SerializeField] int waitFrame        = 20;
+    [SerializeField] float animationSpeed    = 1.0f;
+    [SerializeField] float animationInterval = 20.0f;
     [SerializeField] AudioClip entrySE;
     private Animation destroyer;
     private Animation citizen;
     private Animation title;
 
-    [SerializeField] int flashMaxFrame = 20;
     [SerializeField] AudioClip titleBGM;
     private Image panel;
     private GameObject openingAnimation;
@@ -51,6 +50,8 @@ public class Opening : MonoBehaviour
 
     public void Awaked()
     {
+        this.animationInterval *= Time.deltaTime;
+
         this.destroyer = GameObject.Find("Canvas/OpeningAnimation/Destroyer").GetComponent<Animation>();
         this.citizen   = GameObject.Find("Canvas/OpeningAnimation/Citizen").GetComponent<Animation>();
         this.title     = GameObject.Find("Canvas/OpeningAnimation/Title").GetComponent<Animation>();
@@ -89,7 +90,7 @@ public class Opening : MonoBehaviour
         this.destroyer.Play();
         SoundManager.Instance.PlaySE(this.entrySE);
         while (this.destroyer.isPlaying) yield return null;
-        yield return new WaitForSeconds(Time.deltaTime * waitFrame);
+        yield return new WaitForSeconds(this.animationInterval);
 
         // 市民の登場
         if (!this.skip)
@@ -98,7 +99,7 @@ public class Opening : MonoBehaviour
             this.citizen.Play();
             SoundManager.Instance.PlaySE(this.entrySE);
             while (this.citizen.isPlaying) yield return null;
-            yield return new WaitForSeconds(Time.deltaTime * waitFrame);
+            yield return new WaitForSeconds(this.animationInterval);
         }
 
         // タイトルの表示
@@ -108,7 +109,7 @@ public class Opening : MonoBehaviour
             this.title.Play();
             SoundManager.Instance.PlaySE(this.entrySE);
             while (this.title.isPlaying) yield return null;
-            yield return new WaitForSeconds(Time.deltaTime * waitFrame);
+            yield return new WaitForSeconds(this.animationInterval);
         }
 
         // メインUIに切替
@@ -125,10 +126,10 @@ public class Opening : MonoBehaviour
 
         // 徐々に白
         float time = 0f;
-        while (time <= Time.deltaTime * flashMaxFrame)
+        while (time <= this.animationInterval)
         {
             time += Time.deltaTime;
-            this.panel.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Lerp(0.0f, 1.0f, time / (Time.deltaTime * flashMaxFrame)));
+            this.panel.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Lerp(0.0f, 1.0f, time / this.animationInterval));
             yield return null;
         }
 
@@ -138,9 +139,9 @@ public class Opening : MonoBehaviour
 
         // 徐々に透明
         time = 0f;
-        while (time <= Time.deltaTime * flashMaxFrame) {
+        while (time <= this.animationInterval) {
             time += Time.deltaTime;
-            this.panel.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Lerp(1.0f, 0.0f, time / (Time.deltaTime * flashMaxFrame)));
+            this.panel.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Lerp(1.0f, 0.0f, time / this.animationInterval));
             yield return null;
         }
 

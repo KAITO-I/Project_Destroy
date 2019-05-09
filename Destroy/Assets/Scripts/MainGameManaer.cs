@@ -15,6 +15,7 @@ public class MainGameManaer : MonoBehaviour
     Animator startMsgAnim;
     static Mode NowMode;
     [SerializeField] GameObject gameoverText;
+    [SerializeField] GameObject player;
     private void Awake()
     {
         this.cm = GetComponent<CameraMove>();
@@ -25,6 +26,7 @@ public class MainGameManaer : MonoBehaviour
     {
         StartCoroutine(OpeningAndStartGame());
         this.startMsgAnim.enabled = false;
+        this.player.GetComponent<Unityちゃん_Move>().enabled = false;
     }
 
     private IEnumerator OpeningAndStartGame()
@@ -36,6 +38,7 @@ public class MainGameManaer : MonoBehaviour
         //ゲーム開始
         this.startMsgAnim.enabled = true;
         this.startMsgAnim.Play(0);
+        this.player.GetComponent<Unityちゃん_Move>().enabled = true;
     }
 
     public void GameSet() {
