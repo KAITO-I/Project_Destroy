@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3651,7 +3651,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.6320754, g: 0.048340313, b: 0.020870427, a: 1}
+  m_Color: {r: 0.25, g: 0.25, b: 0.25, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -3844,6 +3844,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMsgAnim: {fileID: 921135189}
   gameoverText: {fileID: 1711095975}
+  player: {fileID: 1232535558}
+  ToRedTime: 0.5
+  light: {fileID: 170076734}
 --- !u!4 &175270620
 Transform:
   m_ObjectHideFlags: 0
@@ -22711,10 +22714,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -24681,6 +24684,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 541756766477497414, guid: 789fc4844696ca24599941f350838539,
     type: 3}
   m_PrefabInstance: {fileID: 1230350661}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1232535558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6993174202401486336, guid: e55bfaeed9cde9941921ef6c317b0cf1,
+    type: 3}
+  m_PrefabInstance: {fileID: 544408069}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1232623613 stripped
 Transform:

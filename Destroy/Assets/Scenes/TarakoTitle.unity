@@ -1772,10 +1772,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationSpeed: 1
-  waitFrame: 20
+  animationInterval: 20
   entrySE: {fileID: 8300000, guid: 63f41dcaeecbd24488e86b52c718a479, type: 3}
-  flashMaxFrame: 20
-  titleBGM: {fileID: 8300000, guid: c7560d65717b15f4096c9f9c226708a2, type: 3}
+  titleBGM: {fileID: 0}
 --- !u!114 &990559983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1791,8 +1790,9 @@ MonoBehaviour:
   selectingSE: {fileID: 8300000, guid: 82ee4f066b2f5cc4a8bd57fe4614dae3, type: 3}
   selectedStartSE: {fileID: 8300000, guid: 0bd003f1ee0a2734fa03e1c2b252fbd8, type: 3}
   selectedSE: {fileID: 8300000, guid: e5c831ee1492c7445befb2a9f7f86682, type: 3}
-  gamescene: jam_tarako
-  rankingscene: Ranking
+  gameScene: jam_Tarako
+  rankingScene: 
+  waitTime: 0.5
 --- !u!114 &990559984
 MonoBehaviour:
   m_ObjectHideFlags: 0

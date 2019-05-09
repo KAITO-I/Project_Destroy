@@ -10,11 +10,11 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        if (MainGameManaer.GetMode() != Mode.Nomal &&)
+        if (MainGameManaer.GetMode() != Mode.Nomal)
         {
-            time += Time.deltaTime;
+            if (GameObject.Find("MainGameManager").GetComponent<MainGameManaer>().started) time += Time.deltaTime;
             scoreTxt.text = time.ToString("f2");
-        } 
+        }
         else scoreTxt.text = score.ToString() + "円";
     }
     //スコアの初期設定

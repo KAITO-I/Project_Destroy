@@ -106,7 +106,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             Get();
             this.tag = "Enemy";
             if (state == EnemyState.Chase) renderer.material = Red;
-
+            GameObject.Find("MainGameManager").GetComponent<MainGameManaer>().StartRun();
         }
 
         public void OnTriggerEnter(Collider other)
