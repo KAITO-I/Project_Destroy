@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        if (MainGameManaer.GetMode() != Mode.Nomal)
+        if (MainGameManaer.GetMode() != Mode.Nomal &&)
         {
             time += Time.deltaTime;
             scoreTxt.text = time.ToString("f2");
