@@ -200,7 +200,7 @@ MonoBehaviour:
   Blue: {fileID: 2100000, guid: 5efe844c377bb3c4bac004b69230e2e5, type: 2}
   transform: {fileID: 0}
   vector3: {x: 0, y: 0, z: 0}
-  Speed: 5
+  Speed: 3
   Flag: 0
   Flag2: 0
   Flag3: 1

@@ -145,7 +145,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   Red: {fileID: 0}
   Blue: {fileID: 0}
-  Speed: 4
+  Speed: 3
   Flag: 0
   Flag2: 0
   Flag3: 1
