@@ -33,8 +33,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] AudioClip selectedStartSE;
     [SerializeField] AudioClip selectedSE;
 
-    [SerializeField] string gamescene;
-    [SerializeField] string rankingscene;
+    [SerializeField] string gameScene;
+    [SerializeField] string rankingScene;
+
+    [SerializeField] float waitTime;
 
     public void Awaked()
     {
@@ -75,7 +77,6 @@ public class MainMenu : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                GetComponent<TitleManager>().status = TitleStatus.None;
                 StartCoroutine(SelectButton());
             }
         }
@@ -119,28 +120,43 @@ public class MainMenu : MonoBehaviour
         switch (this.selectingNum)
         {
             case 0:
-                this.start.selecting.SetActive(false);
-                this.start.selected.SetActive(true);
-                SoundManager.Instance.PlaySE(this.selectedStartSE);
-                yield return new WaitForSeconds(0.5f);
-                if (GetComponent<TitleManager>().tarakoEdition) MainGameManaer.ModeChange(Mode.Tarako);
-                else MainGameManaer.ModeChange(Mode.Nomal);
-                SceneController.Instance.Load(this.gamescene);
+                if (!this.gameScene.Equals(""))
+                {
+                    GetComponent<TitleManager>().status = TitleStatus.None;
+
+                    this.start.selecting.SetActive(false);
+                    this.start.selected.SetActive(true);
+                    SoundManager.Instance.PlaySE(this.selectedStartSE);
+
+                    yield return new WaitForSeconds(waitTime);
+
+                    MainGameManaer.ModeChange((GetComponent<TitleManager>().tarakoEdition) ? Mode.Tarako : Mode.Nomal);
+                    SceneController.Instance.Load(this.gameScene);
+                }
                 break;
 
             case 1:
-                this.ranking.selecting.SetActive(false);
-                this.ranking.selected.SetActive(true);
-                SoundManager.Instance.PlaySE(this.selectedSE);
-                yield return new WaitForSeconds(0.5f);
-                SceneController.Instance.Load(this.rankingscene);
+                if (!this.rankingScene.Equals(""))
+                {
+                    GetComponent<TitleManager>().status = TitleStatus.None;
+
+                    this.ranking.selecting.SetActive(false);
+                    this.ranking.selected.SetActive(true);
+                    SoundManager.Instance.PlaySE(this.selectedSE);
+
+                    yield return new WaitForSeconds(waitTime);
+
+                    SceneController.Instance.Load(this.rankingScene);
+                }
                 break;
 
             case 2:
                 this.quit.selecting.SetActive(false);
                 this.quit.selected.SetActive(true);
                 SoundManager.Instance.PlaySE(this.selectedSE);
-                yield return new WaitForSeconds(0.5f);
+
+                yield return new WaitForSeconds(waitTime);
+
 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
 #endif
